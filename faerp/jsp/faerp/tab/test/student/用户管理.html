@@ -1,0 +1,437 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>修改身份证</title>
+<link href="../../style/common.css" rel="stylesheet" type="text/css" />
+<link href="../../style/index.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+tr.odd{background: #fff;}
+tr.even{background: #f9fcfd;}
+.box tr:hover,tr.hover{background:#c4e7f8;}
+.box tr:selected,tr.selected{background-color:#eef8ff; border-bottom-color:#daf1ff;border-right-color:#daf1ff;}
+.fex_row{LEFT:expression(document.getElementById('values_div').scrollLeft);POSITION: relative;}
+
+
+/*搜索弹出层*/
+.white_content {
+ display: none;
+ position: absolute;
+ top: 135px;
+ left:25%;
+ width:600px;
+ height:450px;
+
+ border: 1px solid #D6E9F1;
+ background:#FEF;
+ z-index:1002;
+}
+.black_overlay {
+ display: none;
+ position: absolute;
+ top: 0%;
+ left: 0%;
+ width: 100%;
+ height: 100%;
+ background-color:#fafafa;
+ z-index:1001;
+ -moz-opacity: 0.8;
+ opacity:.40;
+ filter: alpha(opacity=40);
+}
+.layer_title{ float:right;clear:both; width:600px; text-align:right; margin:0 0 6px 0; background:url(../images/layer.gif) repeat-x; height:35px;line-height:35px; color:#FFF; font-weight:bold;}
+.layer_title span{margin-right:410px;}
+.layer_title a {color:#fff; text-decoration:none; font-size:12px; font-weight:normal; padding-right:10px;}
+#con { width:653px}
+</style>
+<script language="JavaScript" src="../../scripts/common.js"></script>
+
+<!--弹出层-->
+<script>
+function show(tag){
+ var light=document.getElementById(tag);
+ var fade=document.getElementById('fade');
+ light.style.display='block';
+ fade.style.display='block';
+ }
+function hide(tag){
+ var light=document.getElementById(tag);
+ var fade=document.getElementById('fade');
+ light.style.display='none';
+ fade.style.display='none';
+}
+function flexSelections() {  
+	var elementCheckbox = document.getElementsByName("fexnum");  //通过name取出所有的checkbox
+    var tabeDataList=document.getElementById("tabeDataList");//获取table对象
+	var rowlen= tabeDataList.rows.length;//行数
+	  //row.cells.length  通过row 对象获取列数据
+	//alert("行数:"+rowlen);
+	
+	for(var i=0;i<elementCheckbox.length;i++){  //循环checkbox组
+		if(elementCheckbox[i].checked) {  //如果被选中
+		  var cellnum=	 elementCheckbox[i].value;
+		//	alert("cells"+elementCheckbox[i].value);  //加入选中的checkbox
+			for(var j=0;j<rowlen;j++){
+			var row=tabeDataList.rows[j];
+			  var cell=row.cells[cellnum];//选中的某行某列
+			 // alert("第"+j+"行第"+cellnum+"列"+cell.innerHTML);  
+			   cell.className='fex_row';
+			   
+			}
+		}
+	}
+}
+
+</script>
+</head>
+<body>
+<form name="form" action="" method="post"> 
+<div id="right">
+	<div class="right_title_bg">
+	  <div class=" right_title">用户管理</div>
+	</div>
+    <div class="ringht_s">
+    <!--查询 -->
+  <div class="search">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="174" rowspan="3" style="padding-top:0;"><div class="search_title">查询条件</div></td>
+    <td width="75">登录账号</td>
+    <td width="310"><input name="text" type="text" class="sText" id="text" value=""/></td>
+    <td width="73">真实姓名</td>
+    <td width="304"><input name="text3" type="text" class="sText" id="text3" value=""/></td>
+    <td width="176">&nbsp;</td>
+    </tr>
+  <tr>
+    <td>用户状态</td>
+    <td><select name="select2" class="sSelect" id="select2">
+      <option value="">请选择</option>
+      <option value="ro">启用</option>
+      <option value="fr">禁用</option>
+    </select></td>
+    <td>所属机构</td>
+    <td ><input name="text5" type="text" class="sText" id="text5" value=""/></td>
+    <td><input name="submit" type="submit" class="icon_1" value="查询" /></td>
+    </tr>
+    </table>
+  </div>
+    <!--查询 end-->
+    <!--按钮-->
+    	<div class="button">
+            <div class="button_right">
+            	<ul>
+				  <li class="c"><a onClick="MyWin.Create('','新增','[pg]新增用户管理.html','800','320','100','30');">新增</a></li>
+                  <li class="b"><a onClick="MyWin.Create('','修改','[pg]修改用户管理.html','800','320','100','30');">修改</a></li>
+				  <li class="g"><a onClick="javascript:ReadAndUpdate('###')">启用</a></li>
+				  <li class="f"><a onClick="javascript:ReadAndUpdate('###')">禁用</a></li>
+              </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    <!--按钮 end-->
+    <!--表格 -->
+    <div class="box" id="values_div">
+      
+      <table  width="100%" cellspacing="0"  class="datagrid1" id="tabeDataList">
+        <tr>
+          <th width="4%"  class="fex_row">
+            <input type="checkbox" name="checkbox" value="checkbox" onClick="CheckAll()">          </th>
+          <th  class="fex_row">
+		    <a href="javascript:void(0)" onclick="show('light')">锁列</a>
+                <div id="light" class="white_content">
+                  <div class="layer_title"><span>请选择工作地点</span><a href="#" onclick="flexSelections()">[确定]</a><a href="javascript:void(0)" onclick="hide('light')">[关闭]</a></div>
+                
+                  <table width="200" border="1">
+  <tr>
+    <td>&nbsp;</td>
+    <td>标签</td>
+    <td>名字</td>
+  </tr>
+  <tr>
+    <td>  <input type="checkbox" name="fexnum" value="2" /></td>
+    <td>编号</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+     <td> <input type="checkbox" name="fexnum" value="3" /></td>
+    <td>登录账号</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td> <input type="checkbox" name="fexnum" value="4" /></td>
+    <td>姓名</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td> <input type="checkbox" name="fexnum" value="5" /></td>
+    <td>组织机构</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+  <td> <input type="checkbox" name="fexnum" value="6" /></td>
+    <td>状态</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td> <input type="checkbox" name="fexnum" value="7" /></td>
+    <td>创建时间</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+   <td> <input type="checkbox" name="fexnum" value="8" /></td>
+    <td>编号1</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+  <td> <input type="checkbox" name="fexnum" value="9" /></td>
+    <td>登录账号1</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+   <td> <input type="checkbox" name="fexnum" value="10" /></td>
+    <td>姓名1</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+                 
+                </div>
+				   <div id="fade" class="black_overlay"></div>
+		  </th>
+          <th>编号</th>
+          <th>登录账号</th>
+          <th>姓名</th>
+          <th>组织机构</th>
+          <th>状态</th>
+          <th>创建时间</th>
+		  <th>登录账号2</th>
+          <th>姓名2</th>
+          <th>组织机构2</th>
+          <th>状态2</th>
+          <th>创建时间2</th>
+		   <th>登录账号3</th>
+          <th>姓名3</th>
+          <th>组织机构3</th>
+          <th>状态3</th>
+          <th>创建时间3</th>
+		  
+		     <th>登录账号4</th>
+          <th>姓名4</th>
+          <th>组织机构4</th>
+          <th>状态4</th>
+          <th>创建时间4</th>
+		  
+          </tr>
+        <tr>
+          <td class="fex_row">
+            <input type="checkbox" name="checkbox22" value="checkbox">          </td>
+          <td class="fex_row">&nbsp;</td>
+          <td class="">12</td>
+          <td class="">3</td>
+          <td class="">3</td>
+          <td class="">33</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		     <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          </tr>
+       
+          <tr>
+          <td class="fex_row">
+            <input type="checkbox" name="checkbox22" value="checkbox">          </td>
+          <td class="fex_row">&nbsp;</td>
+          <td class="">12</td>
+          <td class="">3</td>
+          <td class="">3</td>
+          <td class="">33</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		     <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          </tr>
+             <tr>
+          <td class="fex_row">
+            <input type="checkbox" name="checkbox22" value="checkbox">          </td>
+          <td class="fex_row">&nbsp;</td>
+          <td class="">12</td>
+          <td class="">3</td>
+          <td class="">3</td>
+          <td class="">33</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		     <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          </tr>
+             <tr>
+          <td class="fex_row">
+            <input type="checkbox" name="checkbox22" value="checkbox">          </td>
+          <td class="fex_row">&nbsp;</td>
+          <td class="">12</td>
+          <td class="">3</td>
+          <td class="">3</td>
+          <td class="">33</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		     <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          </tr>
+             <tr>
+          <td class="fex_row">
+            <input type="checkbox" name="checkbox22" value="checkbox">          </td>
+          <td class="fex_row">&nbsp;</td>
+          <td class="">12</td>
+          <td class="">3</td>
+          <td class="">3</td>
+          <td class="">33</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		     <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          </tr>
+             <tr>
+          <td class="fex_row">
+            <input type="checkbox" name="checkbox22" value="checkbox">          </td>
+          <td class="fex_row">&nbsp;</td>
+          <td class="">12</td>
+          <td class="">3</td>
+          <td class="">3</td>
+          <td class="">33</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		     <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          </tr>
+             <tr>
+          <td class="fex_row">
+            <input type="checkbox" name="checkbox22" value="checkbox">          </td>
+          <td class="fex_row">&nbsp;</td>
+          <td class="">12</td>
+          <td class="">3</td>
+          <td class="">3</td>
+          <td class="">33</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		    <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+		     <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          <td class="">&nbsp;</td>
+          </tr>
+       
+      </table>
+  </div>
+    <!--表格 end-->
+    <!--翻页 -->
+<div class="page">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="12"><img src="../images/page_icon_1.gif"/></td>
+              <td>共 5 条记录，每页 10 条</td>
+              <td width="30"><a href="###">首页</a></td>
+              <td width="20"><a href="###"><img src="../images/page_icon_2.gif"/></a></td>
+              <td width="50" align="center">1/1页</td>
+              <td width="20"><a href="###"><img src="../images/page_icon_3.gif" alt=""/></a></td>
+              <td width="50"><a href="###">尾页</a></td>
+              <td width="40">转到第</td>
+              <td width="45"><input type="text" value="" class="pText"/></td>
+              <td width="20">页</td>
+              <td width="20"><a href="###"><img src="../images/page_icon_4.gif" width="16" height="16" /></a></td>
+              <td width="10"><a href="###">转</a></td>
+            </tr>
+          </table>
+  </div>
+    <!--翻页 end-->
+    </div>
+</div>
+</form>
+<script>
+hide("light");
+</script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<html>
+	<head>
+		<title>Work Flow Select Properties</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Expires" CONTENT="0">
+		<meta http-equiv="Cache-Control" CONTENT="no-cache">
+		<meta http-equiv="Pragma" CONTENT="no-cache">
+		<script type="text/javascript" src="../../dialog/common/fck_dialog_common.js"></script>
+		<script type="text/javascript" src="../../dialog/fck_select/fck_select.js"></script>
+		<script type="text/javascript">
+
+var oEditor = window.parent.InnerDialogLoaded() ;
+
+var FCKWorkFlowSelect = oEditor.FCKWorkFlowSelect ;
+
+// Gets the document DOM
+var oDOM = oEditor.FCK.EditorDocument ;
+var FCKLang = oEditor.FCKLang ;
+
+var oActiveEl = oEditor.FCKSelection.GetSelectedElement() ;
+
+var oListText ;
+var oListValue ;
+
+window.onload = function() {
+	// First of all, translate the dialog box texts
+	oEditor.FCKLanguageManager.TranslatePage(document) ;
+
+	oListText	= document.getElementById( 'cmbText' ) ;
+	oListValue	= document.getElementById( 'cmbValue' ) ;
+
+	if ( oActiveEl && oActiveEl.tagName == 'SPAN' && oActiveEl._selectdesc ) {
+
+		GetE('txtName').value		= oActiveEl._name ;
+		GetE('txtSelValue').value	= oActiveEl._value ;
+		GetE('txtLines').value		= GetAttribute( oActiveEl, '_size' ) ;
+		GetE('chkMultiple').checked	= oActiveEl._multiple ;
+		GetE('txtDesc').value       = oActiveEl._selectdesc ;
+
+		// Load the actual options
+		var str = oActiveEl._selectstr;
+		var array = str.split("$");
+		for ( var i = 0 ; i < array.length - 1 ; i++ ) {
+			var opt = array[i].split("^");
+			var sText	= opt[0] ;
+			var sValue	= opt[1] ;
+
+			AddComboOption( oListText, sText, sText ) ;
+			AddComboOption( oListValue, sValue, sValue ) ;
+		}
+	}
+	else
+		oActiveEl = null ;
+
+	window.parent.SetOkButton( true ) ;
+}
+
+function Ok() {
+	var sSize     = GetE('txtLines').value ;
+	var sName     = GetE('txtName').value ;
+	var sSelValue = document.getElementById('txtSelValue').value ;
+	if ( sSize == null || isNaN( sSize ) || sSize <= 1 )
+		sSize = '' ;
+
+	var oSelect ;
+	if ( !oSelect )	{
+		oSelect = oEditor.FCK.EditorDocument.createElement( 'SELECT' ) ;
+	}
+
+	SetAttribute( oSelect, 'id'	, sName ) ;
+	SetAttribute( oSelect, 'size'	, sSize ) ;
+	oSelect.multiple = ( sSize.length > 0 && GetE('chkMultiple').checked ) ;
+
+	// Remove all options.
+	while ( oSelect.options.length > 0 )
+		oSelect.remove(0) ;
+
+	// Add all available options.
+	for ( var i = 0 ; i < oListText.options.length ; i++ ) {
+		var sText	= oListText.options[i].value ;
+		var sValue	= oListValue.options[i].value ;
+		if ( sValue.length == 0 ) sValue = sText ;
+
+		var oOption = AddComboOption( oSelect, sText, sValue, oDOM ) ;
+
+		if ( sValue == GetE('txtSelValue').value ) {
+			SetAttribute( oOption, 'selected', 'selected' ) ;
+			oOption.selected = true ;
+		}
+	}
+
+	var selStr = "";
+	for ( var i = 0 ; i < oSelect.options.length ; i++ ) {
+		var sTxt	= oSelect.options[i].innerHTML ;
+		var sVal	= oSelect.options[i].value ;
+
+		selStr += sTxt + "^" + sVal +"$";
+	}
+
+	var sDesc = document.getElementById('txtDesc').value ;
+	var sMultiple = oSelect.multiple;
+
+	if ( sDesc.length == 0 ) {
+		alert( FCKLang.WorkFlowSelectErrNoDesc ) ;
+		return false ;
+	}
+
+	if ( sName.length == 0 ) {
+		alert( FCKLang.WorkFlowSelectErrNoName ) ;
+		return false ;
+	}
+
+	if ( isNotNumber(document.getElementById('txtLines').value) ) {
+		alert( FCKLang.WorkFlowSelectErrNoNumber ) ;
+		return false ;
+	}
+
+	var tmpText   = document.getElementById('txtText').value ;
+	var tmpValue  = document.getElementById('txtValue').value ;
+	if ( !isValidate(tmpText) ) {
+		alert( FCKLang.WorkFlowSelectErrNoValidateText ) ;
+		return false ;
+	}
+	if ( !isValidate(tmpValue) ) {
+		alert( FCKLang.WorkFlowSelectErrNoValidateValue ) ;
+		return false ;
+	}
+
+	oSelect.setAttribute("NAME", sName) ;
+
+	FCKWorkFlowSelect.Add(sDesc, oSelect, sName, sSelValue, sSize, sMultiple, selStr);
+
+	return true ;
+}
+
+//验证控件输入值是否为合法数字
+function isNotNumber(param) {
+	var reg = /^[0-9]*$/;
+
+	if ( !reg.test(param) ) {
+		return true ;
+	} else {
+		return false;
+	}
+}
+
+//验证控件输入值是否包含非法的^和$字符
+function isValidate(param) {
+	var reg1 = /[\^]+/g;
+	var reg2 = /[\$]+/g;
+
+	if (!reg1.test(param.value) && !reg2.test(param.value)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+		</script>
+	</head>
+	<body style='OVERFLOW: hidden' scroll='no'>
+		<table width="100%" height="100%">
+			<tr>
+				<td>
+					<table width="100%">
+						<tr>
+							<td nowrap><span fckLang="DlgWorkFlowSelectDesc">Desc</span>&nbsp;</td>
+							<td width="100%" colSpan="2"><input id="txtDesc" style="WIDTH: 100%" type="text"></td>
+						</tr>
+						<tr>
+							<td nowrap><span fckLang="DlgWorkFlowSelectName">Name</span>&nbsp;</td>
+							<td width="100%" colSpan="2"><input id="txtName" style="WIDTH: 100%" type="text" style="ime-mode:disabled"></td>
+						</tr>
+						<tr>
+							<td nowrap><span fckLang="DlgWorkFlowSelectValue">Value</span>&nbsp;</td>
+							<td width="100%" colSpan="2"><input id="txtSelValue" style="WIDTH: 100%; BACKGROUND-COLOR: buttonface" type="text" readonly></td>
+						</tr>
+						<tr>
+							<td nowrap><span fckLang="DlgWorkFlowSelectSize">Size</span>&nbsp;</td>
+							<td nowrap><input id="txtLines" type="text" size="2" value="">&nbsp;<span fckLang="DlgWorkFlowSelectLines">lines</span></td>
+							<td nowrap align="right"><input id="chkMultiple" name="chkMultiple" type="checkbox"><label for="chkMultiple" fckLang="DlgWorkFlowSelectChkMulti">Allow
+									multiple selections</label></td>
+						</tr>
+					</table>
+					<br>
+					<hr style="POSITION: absolute">
+					<span style="LEFT: 10px; POSITION: relative; TOP: -7px" class="BackColor">&nbsp;<span fckLang="DlgWorkFlowSelectOpAvail">Available
+							Options</span>&nbsp;</span>
+					<table width="100%">
+						<tr>
+							<td width="50%"><span fckLang="DlgWorkFlowSelectOpText">Text</span><br>
+								<input id="txtText" style="WIDTH: 100%" type="text" name="txtText">
+							</td>
+							<td width="50%"><span fckLang="DlgWorkFlowSelectOpValue">Value</span><br>
+								<input id="txtValue" style="WIDTH: 100%" type="text" name="txtValue">
+							</td>
+							<td vAlign="bottom"><input onclick="Add();" type="button" fckLang="DlgWorkFlowSelectBtnAdd" value="Add"></td>
+							<td vAlign="bottom"><input onclick="Modify();" type="button" fckLang="DlgWorkFlowSelectBtnModify" value="Modify"></td>
+						</tr>
+						<tr>
+							<td rowSpan="2"><select id="cmbText" style="WIDTH: 100%" onchange="GetE('cmbValue').selectedIndex = this.selectedIndex;Select(this);"
+									size="5" name="cmbText"></select>
+							</td>
+							<td rowSpan="2"><select id="cmbValue" style="WIDTH: 100%" onchange="GetE('cmbText').selectedIndex = this.selectedIndex;Select(this);"
+									size="5" name="cmbValue"></select>
+							</td>
+							<td vAlign="top" colSpan="2">
+							</td>
+						</tr>
+						<tr>
+							<td vAlign="bottom" colSpan="2"><input style="WIDTH: 100%" onclick="Move(-1);" type="button" fckLang="DlgWorkFlowSelectBtnUp" value="Up">
+								<br>
+								<input style="WIDTH: 100%" onclick="Move(1);" type="button" fckLang="DlgWorkFlowSelectBtnDown"
+									value="Down">
+							</td>
+						</tr>
+						<TR>
+							<TD vAlign="bottom" colSpan="4"><INPUT onclick="SetSelectedValue();" type="button" fckLang="DlgWorkFlowSelectBtnSetValue" value="Set as selected value">&nbsp;&nbsp;
+								<input onclick="Delete();" type="button" fckLang="DlgWorkFlowSelectBtnDelete" value="Delete"></TD>
+						</TR>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

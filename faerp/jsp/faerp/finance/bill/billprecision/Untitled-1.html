@@ -1,0 +1,449 @@
+	
+	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<html>
+<head>
+ 
+ 
+<script language="javascript"> 
+	var dir_base = "/FAERP";
+</script>
+ 
+<link href="/FAERP/css/gap-css.jsp" type="text/css" rel="stylesheet" charset="UTF-8">
+<script language="javascript" src="/FAERP/js/jquery/jquery-1.3.min.js"></script>
+<script type='text/javascript' src='/FAERP/js/common/variable-i18n_zh.js'></script>
+ 
+<link href="/FAERP/css/alex-css.jsp" type="text/css" rel="stylesheet">
+<!-- liuping add -->
+<link href="/FAERP/css/common.css" type="text/css" rel="stylesheet">
+ 
+<link href="/FAERP/css/index.css" type="text/css" rel="stylesheet">
+ 
+<style type="text/css"> 
+tr.odd{background: #fff;}
+tr.even{background: #f9fcfd;}
+.box tr:hover,tr.hover{background:#c4e7f8;}
+.box tr:selected,tr.selected{background-color:#eef8ff; border-bottom-color:#daf1ff;border-right-color:#daf1ff;}
+.fex_row{LEFT:expression(document.getElementById('values_div').scrollLeft);POSITION: relative;}
+</style>
+ 
+<script language="javascript" src="/FAERP/js/common/gap-mainframe.js"></script>
+<script language="javascript" src="/FAERP/js/common/gap-validate.js"></script>
+<script language="javascript" src="/FAERP/js/common/gap-waiting.js"></script>
+<script language="javascript" src="/FAERP/js/common/gap-collection.js"></script>
+<script language="javascript" src="/FAERP/js/common/gap-status.js"></script>
+<script language="javascript" src="/FAERP/js/au/gap-authority.js"></script>
+<script language="javascript" src="/FAERP/js/gap-alex.js"></script>
+<script language="javascript" src="/FAERP/js/rm-tools.js"></script>
+<script language="javascript" src="/FAERP/js/common.js"></script>
+ 
+ 
+<script language="javascript" src="/FAERP/js/common/gap4htc.js"></script>
+<script for=document event="oncontextmenu()" language="javascript"> 
+	/*disable the right key*/
+	//return false;
+ 
+</script>
+ 
+<script STYLE="behavior:url(#default#savehistory)" ID="oVenusPersistElement" onsave="fnSave()" onload="fnLoad()"> 
+	function fnSave(){
+		if(venus_Msg_Status != null)
+			oVenusPersistElement.setAttribute("sVenusPersistState",venus_Msg_Status);
+	}
+	function fnLoad(){
+		var tmpvenus_Msg_Status = oVenusPersistElement.getAttribute("sVenusPersistState");
+		if(!(typeof tmpvenus_Msg_Status== "undefined") && tmpvenus_Msg_Status != null)
+		{
+			venus_Msg_Status = tmpvenus_Msg_Status;
+		}
+	}
+</script>
+ 
+ <SCRIPT LANGUAGE="JavaScript"> 
+    document.onkeydown=function(event) {
+        var event = (event) ? event : ((window.event) ? window.event : "") 
+        var key = event.keyCode ? event.keyCode:event.which;
+        if((event.altKey) && (key == 37 || key == 39)){
+            alert("'ALT'+'<-' and 'ALT'+'->' is disabled.");
+            event.cancelBubble = true;
+            return false;
+        }
+        var srcElement = event.srcElement?event.srcElement:event.target;
+        if ((key == 8) && (srcElement.tagName == "TEXTAREA" || srcElement.tagName == "INPUT"))
+        {
+            return;
+        }
+        if ((!(event.altKey)) && (key == 37 || key == 39) && (srcElement.tagName == "TEXTAREA" || srcElement.tagName == "INPUT"))
+        {
+            return;
+        }
+        if ((key == 38 || key == 40) && (srcElement.tagName == "TEXTAREA"))
+        {
+            return;
+        }
+        if ((key==116) || (key==13 && srcElement.type != "textarea")
+            || ((event.ctrlKey)&&(key==78)) //disable Ctrl+n
+            || ((event.shiftKey)&&(key==121)) //disable shift+F10
+            || ((event.ctrlKey)&&(key==115)) //disable Ctrl+F4
+            || (key== 8) //disable Back Space
+        ){
+            event.cancelBubble = true;
+            return false;
+        }
+    }
+</SCRIPT>
+ 
+<!--msg start-->
+ 
+<!--msg end-->
+	
+	
+	
+	
+	
+	<html>
+	
+	<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>codegen</title>
+	<script language="javascript">
+		function insert_onClick(){  //插入单条数据
+			if(checkAllForms()){
+			form.action="/FAERP/BillPrecisionAction.do?cmd=insert";
+			form.submit();
+			}
+		}
+		function findSelections(checkboxName, idName) {  //从列表中找出选中的id值列表
+			var elementCheckbox = document.getElementsByName(checkboxName);  //通过name取出所有的checkbox
+			var number = 0;  //定义游标
+			var ids = null;  //定义id值的数组
+			for(var i=0;i<elementCheckbox.length;i++){  //循环checkbox组
+				if(elementCheckbox[i].checked) {  //如果被选中
+					number += 1;  //游标加1
+					if(ids == null) {
+						ids = new Array(0);
+					}
+					ids.push(elementCheckbox[i].value);  //加入选中的checkbox
+				}
+			}
+			return ids;
+		}
+		function findCheckbox_onClick() {  //从多选框到修改页面
+			var ids = findSelections("checkbox_template","id");  //取得多选框的选择项
+			if(ids == null) {  //如果ids为空
+				alert('请选择一条记录！');
+				return;
+			}
+			if(ids.length > 1) {  //如果ids有2条以上的纪录
+				alert('只能选择一条记录！');
+				return;
+			}
+			form.action="/FAERP/BillPrecisionAction.do?id=" + ids;
+			form.cmd.value = "find";
+			form.submit();
+		}  
+		function deleteMulti_onClick(){  //从多选框物理删除多条记录
+			var ids = findSelections("checkbox_template","id");  //取得多选框的选择项
+			if(ids == null)	{  //如果ids为空
+				alert('请选择记录！');
+				return;
+			}
+			if(confirm('您确定要删除所选择的记录吗？')) {  //如果用户在确认对话框按"确定"
+				form.action="/FAERP/BillPrecisionAction.do?ids=" + ids;
+				form.cmd.value = "deleteMulti";
+				form.submit();
+			}
+		}
+		function simpleQuery_onClick(){  //简单的模糊查询
+			form.cmd.value = "simpleQuery";
+			form.submit();
+		}
+		function toAdd_onClick() {  //到增加记录页面
+			form.action="/FAERP/jsp/faerp/finance/bill/billprecision/insertBillPrecision.jsp";
+			form.submit();
+		}
+		function detail_onClick(){  //实现转到详细页面
+			var ids = findSelections("checkbox_template","id");  //取得多选框的选择项
+			if(ids == null) {  //如果ids为空
+				alert('请选择一条记录！');
+				return;
+			}
+			if(ids.length > 1) {  //如果ids有2条以上的纪录
+				alert('只能选择一条记录！');
+				return;
+			}
+			form.action="/FAERP/BillPrecisionAction.do?id=" + ids;
+			form.cmd.value = "detail";
+			form.submit();
+		}
+	
+	</script>
+	</head>
+	<body>
+	
+ 
+ 
+	 <form name="form" method="post">
+	<div id="ccChild1"     class="box_xinzeng"> 
+	   <select name='e_precision_bd' id=e_precision_bd >
+	     <option value='' >--请选择--</option>
+	     <option value='100' >元</option>
+	     <option value='10' >角</option>
+	     <option value='1' >分</option>
+	     <option value='5' >小数后5位</option>
+	     <option value='999' >不调整</option>
+      </select>
+	   <table  width="100%" height="40" border="0" cellpadding="0" cellspacing="1" bgcolor="#c5dbe2">
+		 <tr>
+		   <td class="td_1" >产品名称</td>
+		   <td class="td_2 ">  <select id='product_id' name='product_id' class='sSelect' > <option value=''>--请选择--</option> <option value='1099110200000000262'>子女医疗保险</option><option value='1099110200000000004'>补充养老保险</option><option value='1099110200000000005'>医疗保险</option><option value='1099110200000000006'>养老保险</option><option value='1099110200000000007'>失业保险</option><option value='1099110200000000008'>生育保险</option><option value='1099110200000000009'>工伤保险</option><option value='1099110200000000010'>住房公积金</option><option value='1099110200000000011'>补充住房公积金</option><option value='1099110200000000012'>综合保险</option><option value='1099110200000000014'>大病保险</option><option value='1099110200000000016'>补充医疗保险</option><option value='1099110200000000093'>南京商业保险</option> </select>		   </td>
+	     </tr>
+		 <tr>
+		   <td class="td_1" >企业金额精度</td>
+		   <td class="td_2 "><div  class='select'> 
+		     <div></div>
+		   </div>  </td>
+	     </tr>
+		 <tr>
+		   <td class="td_1" >企业金额精度方法</td>
+		   <td class="td_2 "><div  class='select'> <div><select name='e_calculate_type_bd' id=e_calculate_type_bd ><option value='' >--请选择--</option><option value='0'  selected >见零进整</option><option value='1' >四舍五入</option><option value='999' >不调整</option></select></div> </div>  </td>
+	     </tr>
+		 <tr>
+		   <td class="td_1" >个人金额精度</td>
+		   <td class="td_2 "><div  class='select'> <div><select name='p_precision_bd' id=p_precision_bd ><option value='' >--请选择--</option><option value='100' >元</option><option value='10' >角</option><option value='1' >分</option><option value='5' >小数后5位</option><option value='999' >不调整</option></select></div> </div>  </td>
+	     </tr>
+		 <tr>
+		   <td class="td_1" >个人金额进位方法</td>
+		   <td class="td_2 "><div  class='select'> <div><select name='p_calculate_type_bd' id=p_calculate_type_bd ><option value='' >--请选择--</option><option value='0'  selected >见零进整</option><option value='1' >四舍五入</option><option value='999' >不调整</option></select></div> </div>  </td>
+	     </tr>
+		 <tr>
+		   <td class="td_1" >变更生效日期</td>
+		   <td class="td_2"><input type="text" class="text_field_reference_readonly" name="last_update_date" id="last_update_date" inputname="变更生效日期" />
+			   <img class="refButtonClass"	src="/FAERP/images/icon/reference.gif" onClick="javascript:getYearMonthDay('last_update_date','/FAERP/');"/> </td>
+	     </tr>
+		 <tr>
+		   <td class="td_1"></td>
+		   <td class="td_2"></td>
+	     </tr>
+	   </table>
+	</div>
+	 </form>
+	 
+	<div id="ccParent1" class="button"> 
+ <div class="button_right">
+				<ul>
+					<li class="c">  	<a onClick="javascript:insert_onClick();">新增 </a></li>
+					<li class="d">  	<a  onClick="javascript:deleteMulti_onClick();">删除 </a> </li>
+				</ul>
+				
+    </div>
+           <div class="clear"></div>			
+</div>
+ 
+	 
+	 <div id="values_div" class="box" > 
+		  <table  width="100%" cellspacing="0"  class="datagrid1">
+	<tr>
+	<th  class="fex_row"><input type='checkbox' onClick="checkAllList_onClick(this);"  pdType='control' control='checkbox_template'/></th>
+	<th width="20%"><a href="/FAERP/BillPrecisionAction.do?cmd=queryAll&VENUS_ORDER_KEY=e_precision_bd"><img src="/FAERP/images/layout/sort.gif" border="0" title="升序"> </a> 产品名称 </th>
+	<th width="20%">
+					
+					<a href="/FAERP/BillPrecisionAction.do?cmd=queryAll&VENUS_ORDER_KEY=e_precision_bd">
+					<img src="/FAERP/images/layout/sort.gif" border="0" title="升序">           	</a>	
+		   
+				 企业金额精度</th>
+				<th width="20%">
+					
+					<a href="/FAERP/BillPrecisionAction.do?cmd=queryAll&VENUS_ORDER_KEY=e_calculate_type_bd">
+					<img src="/FAERP/images/layout/sort.gif" border="0" title="升序">           	</a>	
+		   
+				 企业金额精度方法</th>
+				<th width="20%">
+					
+					<a href="/FAERP/BillPrecisionAction.do?cmd=queryAll&VENUS_ORDER_KEY=p_precision_bd">
+					<img src="/FAERP/images/layout/sort.gif" border="0" title="升序">           	</a>	
+		   
+				 个人金额精度</th>
+				<th width="20%">
+					
+					<a href="/FAERP/BillPrecisionAction.do?cmd=queryAll&VENUS_ORDER_KEY=p_calculate_type_bd">
+					<img src="/FAERP/images/layout/sort.gif" border="0" title="升序">           	</a>	
+		   
+				 个人金额进位方法</th>
+				<th width="20%">
+								
+						<a href="/FAERP/BillPrecisionAction.do?cmd=queryAll&VENUS_ORDER_KEY=last_update_date">
+					<img src="/FAERP/images/layout/sort.gif" border="0" title="升序">           	</a>	
+		   
+				变更生效日期</th>
+			</tr>
+	
+			<tr>
+			<td class="fex_row"> <input type="checkbox" name="checkbox_template" value="1099620300000000005" displayName="1099620300000000005"/></td>
+	
+			<td>
+		医疗保险 
+			</td>
+			<td>
+				
+				角 </td>
+				
+				<td>
+				
+				四舍五入		  </td>
+				
+				<td>
+				
+				分		  </td>
+				<td>
+				
+				四舍五入		  </td>
+				
+				<td>2012-08-03 00:00:00.0   </td>
+			</tr>
+	
+			<tr>
+			<td class="fex_row"> <input type="checkbox" name="checkbox_template" value="1099620300000000006" displayName="1099620300000000006"/></td>
+	
+			<td>
+		养老保险 
+			</td>
+			<td>
+				
+				角 </td>
+				
+				<td>
+				
+				四舍五入		  </td>
+				
+				<td>
+				
+				角		  </td>
+				<td>
+				
+				四舍五入		  </td>
+				
+				<td>2012-08-04 00:00:00.0   </td>
+			</tr>
+	
+			<tr>
+			<td class="fex_row"> <input type="checkbox" name="checkbox_template" value="1099620300000000007" displayName="1099620300000000007"/></td>
+	
+			<td>
+		养老保险 
+			</td>
+			<td>
+				
+				 </td>
+				
+				<td>
+				
+				见零进整		  </td>
+				
+				<td>
+				
+				角		  </td>
+				<td>
+				
+				见零进整		  </td>
+				
+				<td>   </td>
+			</tr>
+	
+	</table>
+	</div>
+	
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class="page">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="12"><img src="images/fesco/page_icon_1.gif"/></td>
+              <td>共 11 条记录，每页 10 条</td>
+              <td width="30"><a href="JavaScript:firstPage();">首页</a></td>
+              <td width="20"><a href="JavaScript:upPage();"><img src="images/fesco/page_icon_2.gif"/></a></td>
+              <td width="50" align="center">1/2页</td>
+              <td width="20"><a href="JavaScript:downPage();"><img src="images/fesco/page_icon_3.gif" alt=""/></a></td>
+              <td width="50"><a href="JavaScript:lastPage();">尾页</a></td>
+              <td width="40">转到第</td>
+              <td width="45"><input type="text" value="1"  name="VENUS_PAGE_NO_KEY_INPUT" id="VENUS_PAGE_NO_KEY_INPUT" class="pText"/>
+              <input type="hidden" name="VENUS_PAGE_NO_KEY" value="1">
+			<input type="hidden" name="VENUS_PAGE_COUNT_KEY" value="2">
+			<input type="hidden" name="VENUS_PAGE_SIZE_KEY" value="10">
+              
+              </td>
+              <td width="20">页</td>
+              <td width="20"><a href="JavaScript:goAppointedPage();"><img src="images/fesco/page_icon_4.gif" width="16" height="16" /></a></td>
+              <td width="10"><a href="JavaScript:goAppointedPage();">转</a></td>
+            </tr>
+          </table>
+  </div>
+ 
+<script language="javascript"> 
+ 
+//翻页相关
+function firstPage(){  //去首页
+	form.VENUS_PAGE_NO_KEY.value=1;
+	form.submit();
+}
+function upPage(){  //去上一页
+	form.VENUS_PAGE_NO_KEY.value--;
+	form.submit();
+}
+function downPage(){  //去下一页
+	form.VENUS_PAGE_NO_KEY.value++;
+	form.submit();
+}
+function lastPage(){  //去末页
+	form.VENUS_PAGE_NO_KEY.value=2;
+	form.submit();
+}
+function goAppointedPage(){  //直接跳到某页
+	checkPageNoKey();
+	form.submit();
+}
+function checkPageNoKey() {
+	form.VENUS_PAGE_NO_KEY.value = form.VENUS_PAGE_NO_KEY_INPUT.value;
+	if(form.VENUS_PAGE_NO_KEY_INPUT.value <= 0) {
+		form.VENUS_PAGE_NO_KEY.value = 1;
+	}
+}
+</script>
+	 
+	 
+	
+	</div>
+	</div>
+	
+	<script language="javascript">
+		writeTableBottomFesco('/FAERP/');  //显示本页的页脚
+	</script>
+	</body>
+	</html>
+	
+	<script language="javascript">
+	
+	</script>	
+

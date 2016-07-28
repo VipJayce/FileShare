@@ -1,0 +1,487 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@include file="/common/common.jsp"%>
+<h:script src="/js/jquery/jquery-1.7.2.min.js"/>
+<script type="text/javascript">
+var _jQuery = window.jQuery, _$ = window.$;
+jQuery.noConflict();
+</script>
+<%@include file="/common/skins/skin0/component.jsp"%>
+<%@include file="/jsp/faerp/finance/common.jsp"%>
+<%@page import="gap.authority.helper.OrgHelper"%>
+<!-- 
+    add by Mahone:
+    注意，div_1和div_3中的参与计算的小额，汇差，核销等textbox的ID,NAME都一样
+    这样做是为了只用一套js，后端java也只取一个name
+ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>认领</title>
+    <script language="javascript" src="<venus:base/>/jsp/faerp/finance/receivable/finclaim/finclaim.js"></script>
+    <script language="javascript">
+        var venusbase = "<%=request.getContextPath()%>";
+        
+        function cancel_onClick(){  //取消后返回列表页面
+		    form.action=venusbase+"/FinclaimAction.do?cmd=leftbar2list";
+		    form.submit();
+		}   
+    </script>
+</head>
+<body>
+<form name="form" method="post" action="<%=request.getContextPath()%>/FinclaimAction.do">
+<input type="hidden" id="cmd" name="cmd" value = "showClaimingPageByIncomingID">
+<input type="hidden" value="${requestScope.balanceflag}" name="balanceflag" id="balanceflag">
+<div id="right">
+    <div class="right_title_bg">
+      <div class=" right_title">到款认领</div></div>
+    <div class="ringht_s">
+     <div class="social_tab">
+         <div style="margin-top:10px;" class="xz_title">到款信息</div>
+        <div class="box_3">
+           <table  width="100%" height="40" cellspacing="1" cellpadding="0" border="0" bgcolor="#c5dbe2">
+             <tr>
+               <td class="td_1">到款编号<input type="hidden" value="${bean.id }" name="incoming_id"/>
+               <input type="hidden" value="${requestScope.balanceAmount}" name="balanceAmount" id="balanceAmount"/>
+               </td>
+               <td class="td_2">${bean.inc_code }</td>
+               <td class="td_1">到款日期</td>
+               <td class="td_2"><fmt:formatDate value="${bean.inc_date }" pattern="yyyy-MM-dd"/></td>
+             </tr>
+             <tr>
+               <td class="td_1">到款额</td>
+               <td class="td_2"><label id="inc_amout"><fmt:formatNumber value="${bean.inc_amout}" pattern="###,###,###,###.##"  minFractionDigits="2"/></label>
+                  <input type="hidden" id="inc_amout_h" name="inc_amout_h" value="${bean.inc_amout}"/>
+               </td>
+               <td class="td_1">到款银行</td>
+               <td class="td_2">
+                    <bean:define id="inc_bank" name="bean" property="inc_bank"/>
+                    <%=BaseDataHelper.getNameByCode("BANK",String.valueOf(inc_bank))%>
+               </td>
+             </tr>
+            <tr>
+               <td class="td_1">上传时间</td>
+               <td class="td_2"><fmt:formatDate value="${bean.upload_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+               <td class="td_1">上传人</td>
+               <td class="td_2">
+                    <bean:define id="create_user" name="bean" property="upload_user_id"/>
+                    <%=OrgHelper.getPartyVoByID(create_user.toString()) == null ? "" : OrgHelper.getPartyVoByID(create_user.toString()).getName()%>
+                </td>
+             </tr>
+<tr>
+               <td class="td_1">最近认领时间</td>
+               <td class="td_2"><fmt:formatDate value="${bean.last_claim_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+               <td class="td_1">认领人</td>
+               <td class="td_2">${bean.last_claim_user_name }</td>
+             </tr>
+             <tr>
+               <td class="td_1">上次认领金额</td>
+               <td class="td_2"><fmt:formatNumber value="${bean.last_claim_amount}" pattern="###,###,###,###.##"  minFractionDigits="2"/></td>
+               <td class="td_1">认领备注</td>
+               <td class="td_2">${bean.last_claim_desc }</td>
+             </tr>
+             <tr>
+               <td class="td_1">认领状态</td>
+               <td class="td_2">
+                    <bean:define id="claim_status_bd" name="bean" property="claim_status_bd"/>
+                    <%=BaseDataHelper.getNameByCode("CLAIM_STATUS_BD",String.valueOf(claim_status_bd))%>
+               </td>
+               <td class="td_1">未认领金额</td>
+               <td class="td_2" id="td_unc">
+                <label id="un_claim_amout"><fmt:formatNumber value="${bean.un_claim_amout}" pattern="###,###,###,###.##"  minFractionDigits="2"/></label>
+                <input type="hidden" id="un_claim_amout_h" name="un_claim_amout_h" value="${bean.un_claim_amout}">
+                </td>
+             </tr>
+             <tr>
+               
+               <td class="td_1">重新选择客户成本中心</td>
+               <td class="td_2">
+                    <table>
+                        <tr >
+                            <td style="height: 20px;">
+                                客户名称
+                                <c:choose>
+                                    <c:when test="${custVo != null }">
+                                        <w:lookup readonly="true" id="lk_cust_id"
+                                        lookupUrl="/FAERP/CustomersimpleAction.do?cmd=getAllCustomerByCondition"
+                                        dialogTitle="选择客户" height="450" width="550" style="width:162px" displayValue="${custVo.customer_name }" readOnly="true"/>
+                                        <input type="hidden" name="cust_name" id="cust_name" value="${custVo.customer_name }" />
+                                        <input type="hidden" name="cust_code" id="cust_code" value="${custVo.customer_code }" />
+                                        <input type="hidden" name="cust_id" id="cust_id" value="${custVo.id }">
+                                        <input type="hidden" name="is_remittance" id="is_remittance" value="${requestScope.is_remittance_error}"/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <w:lookup readonly="true" id="lk_cust_id"
+                                        lookupUrl="/FAERP/CustomersimpleAction.do?cmd=getAllCustomerByCondition"
+                                        dialogTitle="选择客户" height="450" width="550" style="width:162px" displayValue="${custVo.customer_name }"/>
+                                        <input type="hidden" name="cust_name" id="cust_name" value="${custVo.customer_name }" />
+                                        <input type="hidden" name="cust_code" id="cust_code" value="${custVo.customer_code }" />
+                                        <input type="hidden" name="cust_id" id="cust_id" value="${custVo.id }">
+                                        <input type="hidden" name="is_remittance" id="is_remittance" value="${custVo.is_remittance_error }"/>
+                                    </c:otherwise>
+                                </c:choose>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height: 20px;">
+               成本中心
+                               <c:choose>
+                                    <c:when test="${custVo != null }"> 
+		                             <r:comboSelect id="cost_center_id" name="cost_center_id"
+		                                queryAction="/FAERP/BillmodifyAction.do?cmd=getCostCenterByCustomerID"
+		                                textField="cost_center_name" valueField="id" xpath="CostcenterVo"
+		                                width="180">
+		                             </r:comboSelect>
+                                    </c:when>
+                                    <c:otherwise>
+                                    <r:comboSelect id="cost_center_id" name="cost_center_id"
+                                        queryAction="/FAERP/BillmodifyAction.do?cmd=getCostCenterByCustomerID"
+                                        textField="cost_center_name" valueField="id" xpath="CostcenterVo" nullText="--请选择--"
+                                        width="180">
+                                     </r:comboSelect>
+                                    </c:otherwise>
+                                </c:choose>
+                             <input type="hidden" name="cost_center_name" id="cost_center_name" value="${requestScope.cost_center_id}">
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- <input type="submit" value="选择公司和成本中心" id="button2" name="button2"> -->
+               </td>
+               <td class="td_1">到款客户名称</td>
+               <td class="td_2">${bean.inc_cust_name }</td>
+             </tr>
+             <tr>
+               <td class="td_1">认领费用账期</td>
+               <td class="td_2"><input type="text" id="bill_year_month" class="text_field" name="bill_year_month">（格式如：201301）</td>
+               <td class="td_1">本次认领备注</td>
+               <td class="td_2"><textarea id="text" style="width:250px; height:30px;" class="xText_d" rows="3" name="claim_desc"></textarea></td>
+             </tr>
+          </table>
+         </div>
+         <!-- 到款表 结束================到款表 结束=====================到款表 结束 -->
+        <div>
+          <div style="margin-top:10px;" class="xz_title">预收款明细表<input type="hidden" id="adv_h" name="adv_h" value="0"/></div>
+          <div style="margin-left:10;margin-right:0; height:150px;" id="values_div3" class="box" style="overflow-y:scroll;">
+            <table width="100%" cellspacing="0" class="datagrid1" id="advancestable" >
+              <tr>
+                <th width="4%"> <input type="checkbox" " value="checkbox" name="checkbox7" id="chk_adv_all">
+                </th>
+                <th>到账日期</th>
+                <th>到账金额</th>
+                <th>预收</th>
+                <th>上次核销</th><!-- 更好的为“已核销” -->
+              </tr>
+            </table>
+          </div>
+          <div class="foot_button"></div>
+        </div>
+         <div class="reserve_tab">
+           <div class="xixi1" id="bg">
+           <!-- 
+             <div onmousedown="setTab001Syn(1);document.getElementById('bg').className='xixi1'" class="reserve_tab1" id="font1">全部认领</div>
+             <div onmousedown="setTab001Syn(2);document.getElementById('bg').className='reserve_xixi2'" class="reserve_tab2" id="font2">仅认领工资</div>
+             <div onmousedown="setTab001Syn(3);document.getElementById('bg').className='xixi3'" class="reserve_tab3" id="font3">明细认领</div>
+              setTabSyn(1)
+              -->
+             <div id="font1" class="tab1" onMouseDown="setTab_fin(1);document.getElementById('bg').className='xixi1'">全部认领</div>
+             <div id="font3" class="tab2" onMouseDown="setTab_fin(3);document.getElementById('bg').className='xixi2'">明细认领</div>
+             <!-- <a id="addrow">添加一行</a>  -->
+          </div>
+           <div id="TabCon1">
+             <!--表格1====================表格1===========================表格1 BEGIN 此数据为FIN_BILL中的数据 -->
+             <div class="box_3_new" id="div_1">
+              <!--  应收金额+小额调整+汇差=核销金额 -->
+               <table width="100%" height="40" cellspacing="1" cellpadding="0" border="0" bgcolor="#c5dbe2">
+                 <tr>
+                   <td width="10%" class="td_1">所选应收金额合计</td>
+                   <td width="10%" class="td_2" >
+                        <label id="sumv">0.00</label>
+                        <input type="hidden" id="sumv_h" name="sumv_h" value="0.00"/>
+                   </td>
+                   <td width="41%" class="td_1">应收金额+小额调整+汇差=核销金额</td>
+                   <td width="39%" class="td_2"><input type="hidden" id="v_txt_odd" value="0"><!-- 页面存小额-->  <input type="hidden" id="v_txt_rem" value="0"><!-- 页面存汇差 -->
+                        <label id="lbl_sumv"></label>&nbsp;+
+                        <input type="text" id="txt_odd" name="txt_odd"  value="0" class="text_field" style="width: 100px;"> + 
+                        <input type="text" id="txt_rem" name="txt_rem"  value="0"  class="text_field" style="width: 100px; background:#f0f0f0;" readonly="readonly"> = 
+                        <input type="text" id="txt_ver" name="txt_ver"  value="0"  class="text_field" readonly="readonly" style="width: 100px;">
+                   </td>
+                 </tr>
+                 <tr>
+                   <td class="td_1"></td>
+                   <td class="td_2"></td>
+                   <td class="td_1"><label id="resultbt"></label></td>
+                   <td class="td_2">
+                   <label id="resultv"></label>
+                   <input type="hidden" id="lbl_unclaim">
+                   <input type="hidden" id="lbl_balance">
+                   <input type="hidden" id="lbl_ver">
+                   <input type="hidden" id="lbl_difference">
+                         <!-- 
+                        !-- <label id="resultv"></label>  --
+                        !-- 到款未认领 --
+                        <label id="lbl_unclaim"></label>&nbsp;+
+                        !-- 预收 --
+                        <label id="lbl_balance"></label>&nbsp;-
+                        !-- 核销 --
+                        <label id="lbl_ver"></label>&nbsp;=
+                        !-- 差额 lbl_outstanding--
+                        <label id="lbl_difference"></label>
+                        !-- 差额，可认为预收，或未认领 ，只有为正数时，才能走到ACTION
+                        txt_outstanding
+                         --
+                        -->
+                        <input type="hidden" value="0" name="txt_difference" id="txt_difference"><!-- 把计算的结果记录下来，传到后端 -->
+                   </td>
+                 </tr>
+               </table>
+               <div style="margin-left:0;margin-right:0;width:100%;" id="values_div" class="box" >
+                 <table width="100%" cellspacing="0" class="datagrid1" id="table1">
+                   <tr>
+                     <th width="4%">
+                     </th>
+                     <th>应收年月</th>
+                     <th>应收金额</th>
+                     <th>已收金额</th>
+                     <th>小额</th>
+                     <th>汇差</th>
+                     <th>余额</th>
+                     <th>应收类型</th>
+                     <th>客服</th>
+                   </tr>
+                 </table>
+               </div>
+               <div style="width:100%; text-align:center; margin-top:10px;">
+                 <input type="radio" value="1" id="claimingall1" name="claimingall" ><label for="claimingall1">差额做作为欠款/预收保存</label>
+                 <input type="radio" value="2" id="claimingall2" name="claimingall" checked="checked"><label for="claimingall2">差额作为未认领金额</label>
+               </div>
+               <div class="foot_button">
+                 <input type="button" value="保存核销" class="foot_icon_2" onclick="subclaim(this);">
+                 <input type="button" class="foot_icon_1" value="返回"  onclick="javascript:cancel_onClick();" />
+               </div>
+             </div>
+           </div>
+            <!--表格1====================表格1===========================表格1 END -->
+            
+            
+           <!-- 表格2====================表格2===========================表格2 BEGIN -->
+           <div style="display:none; " id="TabCon2">
+             <div class="box_3_new">
+               <table ID="table2" width="100%" height="40" cellspacing="1" cellpadding="0" border="0" bgcolor="#c5dbe2">
+                 <tr>
+                   <td width="16%" class="td_1">发工资人数</td>
+                   <td width="23%" class="td_2"><label id="sumempsalary">0</label>人</td>
+                   <td width="24%" class="td_1">工资合计</td>
+                   <td width="37%" class="td_2">
+                    <label id="sumsalary">0.00</label>
+                    <input id="sumsalary_hid" type="hidden" value="0.00">
+                   </td>
+                 </tr>
+                 <tr>
+                   <td class="td_1">报税人数</td>
+                   <td class="td_2"><label id="sumempfax">0</label>人</td>
+                   <td class="td_1">个调税合计</td>
+                   <td class="td_2">
+                    <label id="sumtax">0.00</label>
+                    <input id="sumtax_hid" type="hidden" value="0.00">
+                   </td>
+                 </tr>
+                 <tr>
+                   <td class="td_1">&nbsp;</td>
+                   <td class="td_2">
+                    <label id="t2_sumv"></label>
+                    <!-- 工资+个税 -->
+                    <input type="hidden" id="t2_sumv_h" name="t2_sumv_h" value="0.00" />
+                    <!-- 人数合计 -->
+                    <input type="hidden" id="t2_sumemp_h" name="t2_sumemp_h" value="0" />
+                    <!--SALARY_TAX_BD 工资报税属性：0:发工资且报税 1:只发工资 2:只报税-->
+                    <input type="hidden" id="taxbd" name="taxbd">
+                   </td>
+                   <td class="td_1">到款未认领+预收款-所选应收</td>
+                   <td class="td_2">
+                     <label id="t2_resultv"></label>
+                     <input type="hidden" value="0" name="t2_cal_res_h" id="t2_cal_res_h">
+                   </td><!--500+100-600 = 0  -->
+                 </tr>
+               </table>
+               <p></p>
+               <div>
+               <div style="width:47%; float:left; margin-left:15px; font-weight:bold; margin-top:10px;">工资批次</div>
+               <div style="width:48%; float:left; margin-left:25px; font-weight:bold; margin-top:10px;">未核销含工资类应收</div>
+                <div style="float:left; width:48%;" id="values_div2" class="box">
+                  <table width="100%" cellspacing="0" class="datagrid1" id="table2_1">
+                    <tr>
+                      <th width="4%"></th>
+                      <th width="24%">薪资发放编号</th>
+                      <th width="24%">工资所属年月</th>
+                      <th width="24%">薪资所属账单年月</th>
+                      <th width="24%">薪资报税年月</th>
+                    </tr>
+                    </tr>
+                  </table>
+                </div>
+                 <div style="float:right; width:48%;" id="values_div4" class="box">
+                   <table width="100%" cellspacing="0" class="datagrid1" id="table2_2">
+                     <tr>
+                       <th width="4%"></th>
+                       <th width="15%">应收年月</th>
+                       <th width="15%">应收金额</th>
+                       <th width="15%">已收金额</th>
+                       <th width="10%">小额</th>
+                       <th width="10%">汇差</th>
+                       <th width="10%">余额</th>
+                       <th width="10%">应收类型</th>
+                       <th width="11%">客服</th>
+                     </tr>
+                   </table>
+                </div>
+                </div>
+                 <div style="width:100%; text-align:center; margin-top:10px;">
+                   <input type="radio" value="3" id="claimingall3" name="claimingall"><label for="claimingall3">差额做作为欠款/预收保存</label>
+                   <input type="radio" value="4" id="claimingall4" name="claimingall"><label for="claimingall4">差额作为未认领金额</label>
+                 </div>
+                 <div class="foot_button">
+                   <input type="button" value="保存核销" class="foot_icon_2" onclick="subclaim(this);" >
+                   <input type="button" class="foot_icon_1" value="返回"  onclick="javascript:cancel_onClick();" />
+                 </div>
+             </div>
+           </div>
+             <!--表格2 ==========================表格2 ===========================表格2 END -->
+            
+            
+           <!--表格3 ==========================表格3  应收金额+小额调整+汇差=核销金额 ===========================表格3  BEGIN  -->
+           <div style="display:none;" id="TabCon3">
+             <div class="box_3_new" id="div_3">
+               <table width="100%" height="40" cellspacing="1" cellpadding="0" border="0" bgcolor="#c5dbe2">
+                 <tr>
+                   <td width="10%" class="td_1">所选应收金额合计</td>
+                   <td width="10%" class="td_2" >
+                        <label id="sumv" value="0">0.00</label>
+                        <input type="hidden" id="sumv_h" name="sumv_h" value="0.00" />
+                   </td>
+                   <td width="41%" class="td_1">应收金额+小额调整+汇差=核销金额</td><!-- 应收=核销-(小额+汇差) -->
+                   <td width="39%" class="td_2"><input type="hidden" id="v_txt_odd" value="0"><!-- 页面存小额-->  <input type="hidden" id="v_txt_rem" value="0"><!-- 页面存汇差 -->
+                        <label id="lbl_sumv"></label>&nbsp;+
+                        <input type="text" id="txt_odd" name="txt_odd" value="0" class="text_field" style="width: 100px;"> + 
+                        <input type="text" id="txt_rem" name="txt_rem" value="0" class="text_field" style="width: 100px; background:#f0f0f0;" readonly="readonly"> = 
+                        <input type="text" id="txt_ver" name="txt_ver" value="0" class="text_field" style="width: 100px;">
+                   </td>
+                 </tr>
+                 <tr>
+                   <td class="td_1"></td>
+                   <td class="td_2"></td>
+                   <!--<td class="td_1">到款未认领+预收款-核销金额=差额</td>-->
+                   <td class="td_1"><label id="resultbt3"></label></td>
+                   <td class="td_2">
+                        <!-- <label id="resultv"></label>  -->
+                        <!-- 到款未认领 
+                        <label id="lbl_unclaim"></label>&nbsp;+
+                        -- 预收 --
+                        <label id="lbl_balance"></label>&nbsp;-
+                        -- 核销 --
+                        label id="lbl_ver"></label>&nbsp;=
+                        -- 余额 --
+                        <label id="lbl_difference"></label>
+                        -- 余额，可认为预收，在全部认领时，只有为正数时，才能走到ACTION
+                        负数为余额，在全部认领时，有负数不予提交
+                         -->
+                       <label id="resultv3"></label>
+	                   <input type="hidden" id="lbl_unclaim">
+	                   <input type="hidden" id="lbl_balance">
+	                   <input type="hidden" id="lbl_ver">
+	                   <input type="hidden" id="lbl_difference">
+                        <input type="hidden" value="0" name="txt_difference" id="txt_difference"><!-- 把计算的结果记录下来，传到后端 -->
+                   </td>
+                 </tr>
+               </table>
+               <div style="margin-left:0;margin-right:0;width:100%;height: 200; overflow: scroll;" id="values_div5" class="box">
+                 <table width="100%" cellspacing="0" class="datagrid1" id="table3_1">
+                   <tr>
+                     <th width="4%">&nbsp;<input type="hidden" name="billid" id="billid"/></th>
+                     <th>应收年月</th>
+                     <th>应收金额</th>
+                     <th>已收金额</th>
+                     <th>小额</th>
+                     <th>汇差</th>
+                     <th>余额</th>
+                     <th>应收类型</th>
+                     <th>客服</th>
+                   </tr>
+                   </table>
+               </div>
+               
+               <div class="xixi1" id="bg2" style="margin-top: 20px;">
+                     <div id="font5" class="tab1" onMouseDown="setTabSyn_fin_detail(5);document.getElementById('bg2').className='xixi1'">账单明细</div>
+                     <div id="font6" class="tab2" onMouseDown="setTabSyn_fin_detail(6);document.getElementById('bg2').className='xixi2'">一次性明细</div>
+               </div>
+               <div id="TabCon5" >
+                   <div style="margin-top:10px;" class="xz_title"></div>
+                   <div id="values_div6" class="box" style="margin:5px 10px 0px 0px;height: 300px; overflow: scroll;width:100%">
+                    <div style="width: 2000px; ">
+                        <table cellspacing="0" class="datagrid1" id="table3">
+                           <tr><th></th></tr>
+                        </table>
+                    </div>
+                   </div>
+               </div>
+               <div id="TabCon6" style="display: none;">
+                   <div style="margin-top:10px;" class="xz_title"></div>
+                   <div id="values_div7" class="box" style="margin:5px 10px 0px 0px;height: 300px; overflow: scroll;width:100%">
+                     <table cellspacing="0" class="datagrid1" id="table4" width="100%">
+                        <tr>
+                            <th width="2%">
+                               <!-- 用于存放传到后端去的一次性收费ID -->
+                               <input type="hidden" name="oneofffeeids" id="oneofffeeids">
+                               <input type="checkbox" name="checkall_oneOfffee" id="checkall_oneOfffee"/>
+                            </th>
+                            <th width="30%">项目名称</th>
+                            <th width="20%">金额</th>
+                            <th width="38%">备注</th>
+                            <th width="10%">时间</th>
+                        </tr>
+                     </table>
+                   </div>
+               </div>
+               
+               <div style="width:100%; text-align:center; margin-top:10px;">
+                 <div id="pageinfo" style="color:red;float:left;"></div>
+                 <input type="radio" value="5" id="claimingall5" name="claimingall"><label for="claimingall5">差额做作为欠款/预收保存</label>
+                 <input type="radio" value="6" id="claimingall6" name="claimingall"><label for="claimingall6">差额作为未认领金额</label>
+               </div>
+               <div class="foot_button">
+                 <input type="button" value="保存核销" class="foot_icon_2" onclick="subclaim(this);" >
+                 <input type="button" class="foot_icon_1" value="返回"  onclick="javascript:cancel_onClick();" />
+               </div>
+                <p></p>
+             </div>
+            <!--表格3 ==========================表格3 ===========================表格3  END  -->
+           </div>
+        </div>
+     </div>
+     </div>
+     </div>
+     <input type="hidden" name="claimval" id="claimval" value="">
+</form>
+</body>
+</html>
+<script language="javascript">
+if(${msg != null && msg != ""}) {
+    alert("${msg }");
+}
+
+
+///汇差可输入
+if(${custVo != null && custVo != ""}) {
+    var is_remittance_error = "${requestScope.is_remittance_error}";
+    if (is_remittance_error == '1') {
+            //有汇差，显示汇差，把汇差的只读属性去掉
+            _$("#div_1 input[id='txt_rem']").removeAttr("readonly");
+            _$("#div_1 input[id='txt_rem']").css({background: "white" });
+        } else {
+            //无汇差，显示小额
+            _$("#div_1 input[id='txt_rem']").attr("readonly", true);
+            _$("#div_1 input[id='txt_rem']").css({background: "#f0f0f0" });
+        }
+
+}
+
+</script>

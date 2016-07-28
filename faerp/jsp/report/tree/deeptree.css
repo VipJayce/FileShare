@@ -1,0 +1,84 @@
+body
+{
+
+}
+
+.deeptree
+{
+    width: 100%: height:100%;
+    padding: 10px;
+}
+
+.TreeNode
+{
+    font-family: Verdana;
+    font-size: 12px;
+    color:black;
+}
+
+.TreeNode img
+{
+    cursor: hand;
+}
+
+.TreeNode span
+{
+    height: 18px;
+    color: black;
+    margin-left: 0px;
+    border: 0px solid #FFFFFF;
+    padding: 3 3;
+    cursor: default;
+}
+.container
+{
+    padding-left: 14px;
+}
+
+A:visited {
+	font-size: 9pt;
+	color: black;
+	text-decoration: none;
+	font-family: "Arial";
+}
+
+span a
+{
+    color: white;
+    text-decoration: none;
+}
+span a.abandon
+{
+    color: #black;
+    text-decoration: none;
+}
+span a.hidden
+{
+    color: #ACACAC;
+    text-decoration: none;
+
+}
+span.MouseOver
+{
+    border: 0px solid #999999;
+    cursor:hand;
+    color:black;
+}
+
+span.dragOver
+{
+	background-color: #BB7977;
+	color: black;
+    border: 0px solid #999999;
+    text-decoration: underline;
+    cursor:hand;
+}
+
+span.HighLight
+{
+	background-color:#c1dbef;
+}
+span.load
+{
+    color:black;
+}

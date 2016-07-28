@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="gb2312"?>
+<modules>
+	<module id="0">
+		<group>主框架</group>
+		<name>0. 主程序框架</name>
+		<url>#</url>
+		<target />
+	</module>
+	<module id="1">
+		<group>主框架</group>
+		<name>1. 列表控件模板</name>
+		<url>index/venuspage-index.jsp</url>
+		<target>frame</target>
+	</module>
+	<module id="2">
+		<group>应用系统</group>
+		<name>2. 工作流平台</name>
+		<url>index/workflow-index.jsp</url>
+		<target>_blank</target>
+	</module>
+	<module id="3">
+		<group>应用系统</group>
+		<name>3. 组织权限平台</name>
+		<url>index/authority-index.jsp</url>
+		<target>_blank</target>
+	</module>
+	<module id="6">
+		<group>组件库</group>
+		<name>6. 业务日志</name>
+		<url>index/bnLog-index.jsp</url>
+		<target>frame</target>
+	</module>
+	<module id="9">
+		<group>组件库</group>
+		<name>9. 任务调度</name>
+		<url>index/gap-quartz-index.jsp</url>
+		<target>_blank</target>
+	</module>
+	<module id="10">
+		<group>组件库</group>
+		<name>10. 报表工具</name>
+		<url>index/report-index.jsp</url>
+		<target>_blank</target>
+	</module>
+	<module id="11">
+		<group>组件库</group>
+		<name>11. AJAX控件</name>
+		<url>index/ajaxList-index.jsp</url>
+		<target>_blank</target>
+	</module>
+	<module id="12">
+		<group>代码生成框架</group>
+		<name>12. RM代码生成框架</name>
+		<url>index/rmframe-index.jsp</url>
+		<target>_blank</target>
+	</module>
+	<module id="14">
+		<group>组件库</group>
+		<name>14. 站内短信</name>
+		<url>index/im-index.jsp</url>
+		<target>_blank</target>
+	</module>
+	<module id="15">
+		<group>应用系统</group>
+		<name>15. 数据字典</name>
+		<url>index/dd-index.jsp</url>
+		<target>_blank</target>
+	</module>
+	<module id="19">
+		<group>应用系统</group>
+		<name>19. 预警平台</name>
+		<url>index/warning-index.jsp</url>
+		<target>_blank</target>
+	</module>
+</modules>
+

@@ -1,0 +1,50 @@
+ul.TabBarLevel1{   
+	  list-style:none;   
+	  margin:0;   
+	  padding:0;   
+	  height:29px;   
+	  background-image:url(tabbar_bg.gif);   
+  }   
+  ul.TabBarLevel1 li{   
+	  float:left;   
+	  padding:0;   
+	  height:29px;   
+	  margin-right:1px;   
+	  background:url(tabbar_left_bg.gif)   left   top   no-repeat;   
+  }   
+  ul.TabBarLevel1 li a{   
+	  display:block;   
+	  line-height:29px;   
+	  padding:0  20px;   
+	  color:#333;   
+	  background:url(tabbar_right_bg.gif)   right   top   no-repeat;   
+	  white-space: nowrap;   
+  }   
+  ul.TabBarLevel1 li.Selected{   
+  	  background:url(tabbar_selected_left_bg.gif)   left   top   no-repeat;   
+  }   
+  ul.TabBarLevel1 li.Selected a{   
+  	  background:url(tabbar_selected_right_bg.gif)   right   top   no-repeat;   
+  }
+  ul.TabBarLevel1 li a:link,ul.TabBarLevel1 li a:visited{   
+  	  color:#333;   
+  }   
+  ul.TabBarLevel1 li a:hover,ul.TabBarLevel1 li a:active{   
+  	  color:#F30;   
+  	  text-decoration:none;   
+  }   
+  ul.TabBarLevel1 li.Selected a:link,ul.TabBarLevel1 li.Selected a:visited{   
+  	  color:#000;   
+  }   
+  ul.TabBarLevel1 li.Selected a:hover,ul.TabBarLevel1 li.Selected a:active{   
+  	  color:#F30;   
+  	  text-decoration:none;   
+  }   
+  div.HackBox{   
+      width:100%;
+      padding:2px 2px;   
+      border-left:2px solid #6697CD;   
+      border-right:2px solid #6697CD;   
+      border-bottom:2px solid #6697CD;   
+      display:none;   
+  }

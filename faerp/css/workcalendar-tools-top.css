@@ -1,0 +1,177 @@
+body {
+        width: 1020px;
+        text-align: center;
+        font-size: 14px;
+        font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        }
+        
+    #wrap {
+    	margin:0 0 0 15px !important;
+        margin:0;
+        width: 1000px;
+        }
+        
+    #external-events {
+        width: 880px;
+        margin:0px 0px 20px 80px;
+        *margin:0px 0px 20px 0px;
+        _margin:0px 0px 20px 0px;
+        padding: 0px;
+        border: 0px;
+        background: #eee;
+        }
+        
+    .important-urgency-event { /* try to mimick the look of a real event */
+        float: left;
+        margin: 0px 20px 0px -10px;
+        padding: 2px;
+        background: #CC3300;
+        color: #fff;
+        font-size: .85em;
+        cursor: pointer;
+        }
+    .important-event { /* try to mimick the look of a real event */
+        float: left;
+        margin: 0px 20px 0px 20px;
+        padding: 2px;
+        background: #9933CC;
+        color: #fff;
+        font-size: .85em;
+        cursor: pointer;
+        }
+        
+    .urgency-event { /* try to mimick the look of a real event */
+        float: left;
+        margin: 0px 20px 0px 20px;
+        padding: 2px;
+        background: #FFCC00;
+        color: #3366CC;
+        font-size: .85em;
+        cursor: pointer;
+        }
+    
+    .normal-event { /* try to mimick the look of a real event */
+        float: left;
+        margin: 0px 20px 0px 20px;
+        padding: 2px;
+        background: #6699CC;
+        color: #fff;
+        font-size: .85em;
+        cursor: pointer;
+        }
+    
+    .attention-event { /* try to mimick the look of a real event */
+        float: left;
+        margin: 0px 20px 0px 20px;
+        padding: 2px;
+        background: #009933;
+        color: #fff;
+        font-size: .85em;
+        cursor: pointer;
+        }
+    
+    .overtime-event { /* try to mimick the look of a real event */
+        float: left;
+        margin: 0px 20px 0px 20px;
+        padding: 2px;
+        background: #3366CC;
+        color: #fff;
+        font-size: .85em;
+        cursor: pointer;
+        }
+        
+    #external-events p {
+        margin: 0;
+        }
+        
+    #external-events p input {
+        margin: 0;
+        }
+
+    #calendar {
+    	margin-left:70px;
+        *margin-left:0px;
+        _margin-left:0px;
+        width: 880px;
+        }
+        
+    .important-urgency,
+    .fc-agenda .important-urgency .fc-event-time,
+    .important-urgency a {
+        background-color: #CC3300;
+        border-color: #CC3300;
+        color: #FFFFFF;
+        }
+    
+    .important,
+    .fc-agenda .important .fc-event-time,
+    .important a {
+        background-color: #9933CC;
+        border-color: #9933CC;
+        color: #FFFFFF;
+        }  
+        
+    .urgency,
+    .fc-agenda .urgency .fc-event-time,
+    .urgency a {
+        background-color: #FFCC00;
+        border-color: #FFCC00;
+        color: #3366CC;
+        }  
+
+    .normal,
+    .fc-agenda .normal .fc-event-time,
+    .normal a {
+        background-color: #6699CC;
+        border-color: #6699CC;
+        color: #FFFFFF;
+        } 
+        
+
+    .attention,
+    .fc-agenda .attention .fc-event-time,
+    .attention a {
+        background-color: #009933;
+        border-color: #009933;
+        color: #FFFFFF;
+        } 
+    ul.colors li {
+       width: 20px;
+       height: 20px;
+       border: 1px solid #EEE;
+       float: left;
+       display: inline;
+       margin: 0 8px 0 0;
+       cursor: pointer;
+    }
+    .color-important-urgency {
+        background:none repeat scroll 0 0 #CC3300;
+    }
+    .color-important{
+        background:none repeat scroll 0 0 #9933CC;
+    }
+    .color-urgency{
+        background:none repeat scroll 0 0 #FFCC00;
+    }
+    .color-normal{
+        background:none repeat scroll 0 0 #6699CC;
+    }
+    .color-attention{
+        background:none repeat scroll 0 0 #009933;
+    }
+    
+    .closeWorkItem, x:-moz-any-link, x:default { 
+        display: none;
+        top:66px;
+        left:93px;
+    }
+    .closeWorkItem{
+        display: none;
+        [;position:absolute;
+        top:66px;
+        left:93px;
+        *top:80px;
+        *left:88px;
+        _top:80px;
+        _left:80px;
+    }

@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FESCO Adecco ERP系统</title>
+<link href="../css/common.css" rel="stylesheet" type="text/css" />
+<link href="../css/index.css" rel="stylesheet" type="text/css" />
+<style>
+ html{  scrollbar-face-color:#2b9dd9;  scrollbar-highlight-color:#2eb2f7;  scrollbar-3dlight-color:#66bfee;  scrollbar-darkshadow-color:#000;  scrollbar-Shadow-color:#000;  scrollbar-arrow-color:#FFF;  scrollbar-track-color:#e5f4fc;  }  
+</style>
+<script>
+function  abc(url){
+//parent.frames["contents"].document.location=url;
+parent.document.getElementById("contents").src=url;
+parent.document.getElementById("contents").location.reload();
+}
+</script>
+<script type="text/javascript" src="scripts/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.accordion.js"></script>
+<script type="text/javascript" src="scripts/jquery.address-1.3.2.min.js?autoUpdate=false"></script>
+<script type="text/javascript">
+            
+            $(function () {
+                $('ul').accordion();
+                $('ul li:has(ul, div) > a').click(function(event, silent) {
+                    if (silent === undefined) {
+                        $.address.value('/');
+                        $('ul li[class*=active]:has(ul, div) > a').each(function() {
+                            $.address.parameter('a', $(this).attr('href').replace(/^#/, ''), true);
+                        });
+                        $.address.update();
+                        return false;
+                    }
+                });
+            });
+            
+            $.address.change(function(event) {
+                var params = event.parameters['a'];
+                $('ul li:has(ul, div) > a').each(function() {
+                    var active = $(this).parent('li').attr('class').indexOf('active') != -1;
+                    if ($.inArray(
+                            $(this).attr('href').replace(/^#/, ''), 
+                            [].concat(params ? params : [])) != -1) {
+                        if (!active) $(this).trigger('click', [true]);
+                    } else if (active) {
+                        $(this).trigger('click', [true]);
+                    }
+                });
+            });
+			
+        </script>
+</head>
+<body style="overflow:auto;  overflow-x: hidden;">
+<!--左侧菜单-->
+<div id="left">
+  <ul class="accordion">
+  	<!--销售管理-->
+    <li> <a href="#america" onclick="javascript:abc('tab/销售管理/异地代理商管理.html');"><span class="left_icon_1"><img src="../images/left_icon/l_icon_1.gif" style="vertical-align:middle;"/></span>销售管理</a>
+      <ul>
+		<li> <a href="#america-kehu" class="ll" onclick="javascript:abc('tab/销售管理/异地代理商管理.html');">异地代理商管理</a></li>
+
+        <li> <a href="#america-kehu" class="ll" onclick="javascript:abc('tab/销售管理/客户管理.html');">客户管理</a>
+          <div> 
+          <span><a href="javascript:abc('tab/销售管理/客户管理.html');">客户维护</a></span>
+          <span><a href="javascript:abc('tab/销售管理/客户简档.html');">客户简档</a></span>  
+          <span><a href="javascript:abc('tab/销售管理/成本中心.html');">成本中心</a></span> 
+          <span><a href="javascript:abc('tab/销售管理/分配客户.html');">分配客户</a></span> 
+          </div>
+        </li>
+        <li> <a href="#america-hetong" class="ll" onclick="javascript:abc('tab/销售管理/合同模板.html');">商务合同管理</a>
+          <div> 
+          	<span><a href="javascript:abc('tab/销售管理/合同模板.html');">合同模版</a></span> 
+            <span><a href="javascript:abc('tab/销售管理/合同管理.html');">合同管理</a></span> 
+
+          </div>
+        </li>
+        <li> <a href="#america-baojia" class="ll" onclick="javascript:abc('tab/销售管理/报价单模板查询.html');">报价单管理</a>
+          <div> 
+          	<span><a href="javascript:abc('tab/销售管理/报价单模板查询.html');">报价单模板</a></span> 
+            <span><a href="javascript:abc('tab/销售管理/报价单查询.html');">报价单管理</a></span> 
+          </div>
+        </li>
+        <li> <a href="javascript:abc('tab/销售管理/委派单管理.html');" class="ll">委派单管理</a> </li>
+      </ul>
+    </li>
+    <!--销售管理 end-->
+    <!--员工入离职管理-->
+    <li> <a href="#yuangong" onclick="javascript:abc('tab/员工入离职管理/员工派出.html');"><span class="left_icon_1" ><img  src="../images/left_icon/l_icon_3.gif" style="vertical-align:middle;"/></span>入离职管理</a>
+      <ul>
+		<li> <a href="#america-ruzhi" class="ll" onclick="javascript:abc('tab/员工入离职管理/员工派出.html');">员工入职管理</a>
+          <div> 
+		    <span><a href="javascript:abc('tab/员工入离职管理/员工派出.html');">员工派出</a></span> 
+            <span><a href="javascript:abc('tab/员工入离职管理/申报入职.html');">申报入职</a></span> 
+            <span><a href="javascript:abc('tab/员工入离职管理/入职查询.html');">入职查询</a></span> 
+            <span><a href="javascript:abc('tab/员工入离职管理/通知体检.html');">通知体检</a></span>
+            <span><a href="javascript:abc('tab/员工入离职管理/入职分类.html');">入职分类</a></span>
+ 
+            <span><a href="javascript:abc('tab/员工入离职管理/申报转移.html');">申报转移</a></span>
+            <span><a href="javascript:abc('tab/员工入离职管理/申报变更.html');">申报变更</a></span>  
+            <span><a href="javascript:abc('tab/员工入离职管理/变更分类.html');">变更分类</a></span> 
+            <span><a href="javascript:abc('tab/员工入离职管理/批量导入.html');">批量导入</a></span> 
+            
+			<!--
+            <span><a href="javascript:abc('tab/员工入离职管理/入职服务修改.html');">入职服务修改</a></span>
+            -->  
+            
+			<!--
+            <span><a href="javascript:abc('tab/tab2.html');">入职材料收缴</a></span> 
+            <span><a href="javascript:abc('tab/tab2.html');">入职材料收缴查询</a></span>  
+			-->
+          </div>
+        </li>
+        <li> <a href="#america-xinxi" class="ll" onclick="javascript:abc('tab/员工入离职管理/员工信息维护.html');">员工信息管理</a>
+          <div> 
+            <span><a href="javascript:abc('tab/员工入离职管理/员工信息维护.html');">员工信息维护</a></span> 
+            <span><a href="javascript:abc('tab/员工入离职管理/员工银行卡维护.html');">员工银行卡维护</a></span> 
+          </div>
+        </li>
+        <li> <a href="#america-lizhi" class="ll" onclick="javascript:abc('tab/员工入离职管理/申报离职.html');">员工离职管理</a>
+          <div> 
+          	<span><a href="javascript:abc('tab/员工入离职管理/申报离职.html');">申报离职</a></span> 
+            <span><a href="javascript:abc('tab/员工入离职管理/撤销离职.html');">撤销离职</a></span> 
+            <span><a href="javascript:abc('tab/员工入离职管理/批量导入离职.html');">导入离职</a></span>
+          </div>
+        </li>
+        <li> <a href="javascript:abc('tab/员工入离职管理/入离职查询.html');" class="ll">员工入离职查询</a> </li>
+        <li> <a href="#america-dangwu" class="ll" onclick="javascript:abc('tab/员工入离职管理/党员信息维护.html');">党务管理</a>
+          <div> 
+          	<span><a href="javascript:abc('tab/员工入离职管理/党员信息维护.html');">党员信息维护</a></span> 
+            <span><a href="javascript:abc('tab/员工入离职管理/党组织关系维护.html');">党组织关系维护</a></span> 
+            <span><a href="javascript:abc('tab/员工入离职管理/党费信息维护.html');">党费信息维护</a></span>
+            <span><a href="javascript:abc('tab/员工入离职管理/党支部信息维护.html');">党支部信息维护</a></span>  
+            <span><a href="javascript:abc('tab/员工入离职管理/党课党活动维护.html');">党课党活动维护</a></span> 
+            <span><a href="javascript:abc('tab/员工入离职管理/党务报表.html');">党务报表</a></span> 
+          </div>
+        </li>
+        <li> <a href="#america-fuli" class="ll" onclick="javascript:abc('tab/员工入离职管理/福利发放.html');">福利管理</a>
+          <div> 
+          	<!--<span><a href="javascript:abc('tab/员工入离职管理/生成福利数据.html');">生成福利数据</a></span>-->
+            <span><a href="javascript:abc('tab/员工入离职管理/福利发放.html');">福利发放</a></span>  
+            <!--<span><a href="javascript:abc('tab/员工入离职管理/报销申请.html');">报销申请</a></span>--> 
+            <!--<span><a href="javascript:abc('tab/员工入离职管理/员工福利管理.html');">员工福利管理</a></span>--> 
+            <span><a href="javascript:abc('tab/员工入离职管理/福利报销.html');">福利报销</a></span>
+          </div>
+        </li>
+        <li> <a href="javascript:abc('tab/员工入离职管理/档案费.html');" class="ll">档案费</a> </li>
+        <li> <a href="javascript:abc('tab/员工入离职管理/体检费.html');" class="ll">体检费</a> </li>
+      </ul>
+    </li>
+    <!--员工入离职管理 end-->
+    <!--人事服务管理-->
+    <li> <a href="#renshi" onclick="javascript:abc('tab/人事服务管理/员工劳动合同管理.html');"><span class="left_icon_1"><img src="../images/left_icon/l_icon_2.gif" style="vertical-align:middle;"/></span>人事服务管理</a>
+      <ul>
+        <li> <a href="javascript:abc('tab/人事服务管理/员工劳动合同管理.html');" class="ll">劳动合同管理</a> </li>
+        <li> <a href="#america-tuigong" class="ll" onclick="javascript:abc('tab/人事服务管理/用工办理.html');">用退工管理</a>
+          <div> 
+          	<span><a href="javascript:abc('tab/人事服务管理/用工办理.html');">用工办理</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/退工办理.html');">退工办理</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/用退工查询.html');">用退工查询</a></span>  
+            <span><a href="javascript:abc('tab/人事服务管理/用工方维护.html');">用工方维护</a></span> 
+            <!--<span><a href="javascript:abc('tab/人事服务管理/劳动手册管理.html');">劳动手册管理</a></span>--> 
+          </div>
+        </li>
+        <li> <a href="#america-shebao" class="ll" onclick="javascript:abc('tab/人事服务管理/社保账号管理.html');">社保管理</a>
+          <div> 
+          	<span><a href="javascript:abc('tab/人事服务管理/社保账号管理.html');">社保帐号</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/社保申请.html');">社保申请</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/社保办理.html');">社保办理</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/社保停办.html');">社保停办</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/社保修改.html');">社保修改</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/社保变更.html');">社保变更</a></span>  
+            <span><a href="javascript:abc('tab/人事服务管理/社保查询.html');">社保查询</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/社保补缴查询.html');">补缴查询</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/社保报表.html');">社保报表</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/社保支付.html');">社保支付</a></span>    
+          </div>
+        </li>
+        <li> <a href="#america-zhenbao" class="ll" onclick="javascript:abc('tab/人事服务管理/镇保账号管理.html');">镇保管理</a>
+          <div> 
+          	<span><a href="javascript:abc('tab/人事服务管理/镇保账号管理.html');">镇保帐号管理</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/镇保申请.html');">镇保申请</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/镇保办理.html');">镇保办理</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/镇保停办.html');">镇保停办</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/镇保变更修改.html');">镇保变更修改</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/镇保查询.html');">镇保查询</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/镇保补缴查询.html');">镇保补缴查询</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/镇保报表.html');">镇保报表</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/镇保支付.html');">镇保支付</a></span>  
+          </div>
+        </li>
+        <li> <a href="#america-zonghe" class="ll" onclick="javascript:abc('tab/人事服务管理/综合保险账号管理.html');">综合保险管理</a>
+          <div> 
+          	<span><a href="javascript:abc('tab/人事服务管理/综合保险账号管理.html');">综合保险帐号管理</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/综合保险申请.html');">综合保险申请</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/综合保险办理.html');">综合保险办理</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/综合保险停办.html');">综合保险停办</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/综合保险变更修改.html');">综合保险变更修改</a></span>  
+            <span><a href="javascript:abc('tab/人事服务管理/综合保险查询.html');">综合保险查询</a></span>  
+            <span><a href="javascript:abc('tab/人事服务管理/综合保险补缴查询.html');">综合保险补缴查询</a></span>  
+            <span><a href="javascript:abc('tab/人事服务管理/综合保险报表.html');">综合保险报表</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/综合保险支付.html');">综合保险支付</a></span>  
+          </div>
+        </li>
+        <li> <a href="#america-jijin" class="ll" onclick="javascript:abc('tab/人事服务管理/公积金账号管理.html');">公积金管理</a>
+          <div> 
+          	<span><a href="javascript:abc('tab/人事服务管理/公积金账号管理.html');">公积金帐号</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/公积金申请.html');">公积金申请</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/公积金管理.html');">公积金管理</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/公积金办理.html');">公积金办理</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/公积金停办.html');">公积金停办</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/公积金修改.html');">公积金修改</a></span> 
+			<span><a href="javascript:abc('tab/人事服务管理/公积金变更.html');">公积金变更</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/公积金查询.html');">公积金查询</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/公积金补缴查询.html');">补缴查询</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/公积金报表.html');">公积金报表</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/公积金支付.html');">公积金支付</a></span> 
+          </div>
+        </li>
+        <li> <a href="#america-yidi" class="ll" onclick="javascript:abc('tab/人事服务管理/异地社保账号管理.html');">异地社保管理</a>
+          <div> 
+          	<span><a href="javascript:abc('tab/人事服务管理/异地社保账号管理.html');">异地社保帐号管理</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/异地社保申请.html');">异地社保申请</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/异地社保办理.html');">异地社保办理</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/异地社保停办.html');">异地社保停办</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/异地社保变更修改.html');">异地社保变更修改</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/异地社保查询.html');">异地社保查询</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/异地社保补缴查询.html');">异地社保补缴查询</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/异地社保报表.html');">异地社保报表</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/异地社保支付.html');">异地社保支付</a></span>  
+          </div>
+        </li>
+        <li> <a href="#america-yidi2" class="ll" onclick="javascript:abc('tab/人事服务管理/异地公积金账号管理.html');">异地公积金管理</a>
+          <div> 
+          	<span><a href="javascript:abc('tab/人事服务管理/异地公积金账号管理.html');">异地公积金帐号管理</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/异地公积金申请.html');">异地公积金申请</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/异地公积金办理.html');">异地公积金办理</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/异地公积金停办.html');">异地公积金停办</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/异地公积金变更修改.html');">异地公积金变更修改</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/异地公积金查询.html');">异地公积金查询</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/异地公积金补缴查询.html');">异地公积金补缴查询</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/异地公积金报表.html');">异地公积金报表</a></span>
+            <span><a href="javascript:abc('tab/人事服务管理/异地公积金支付.html');">异地公积金支付</a></span>  
+          </div>
+        </li>
+        <li> <a href="javascript:abc('tab/人事服务管理/社保公积金联合查询.html');" class="ll">社保公积金联合查询</a> </li>
+         <li> <a href="#america-jishu" class="ll" onclick="javascript:abc('tab/员工入离职管理/调整任务设置.html');">基数调整</a>
+          <div> 
+          	<span><a href="javascript:abc('tab/员工入离职管理/调整任务设置.html');">调整任务设置</a></span> 
+            <span><a href="javascript:abc('tab/员工入离职管理/导出调整名单.html');">导出调整名单</a></span> 
+            <span><a href="javascript:abc('tab/员工入离职管理/导入调整数据.html');">导入调整数据</a></span>
+            <span><a href="javascript:abc('tab/员工入离职管理/调整处理.html');">调整处理</a></span> 
+          </div>
+        </li>
+        <li> <a href="#america-zhengjian" class="ll" onclick="javascript:abc('tab/人事服务管理/证件服务管理.html');">证件管理</a>
+          <div> 
+          	<span><a href="javascript:abc('tab/人事服务管理/证件服务管理.html');">证件服务管理</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/商务证件办理.html');">商务证件办理</a></span>
+			<span><a href="javascript:abc('tab/人事服务管理/签证办理.html');">签证办理</a></span> 
+            <span><a href="javascript:abc('tab/人事服务管理/证件信息查询.html');">证件信息查询</a></span>    
+          </div>
+        </li>
+      </ul>
+    </li>
+    <!--人事服务管理 end-->
+    <!--福利外包--> 
+    <li> <a href="#fuliwaibao" onclick="javascript:abc('tab/福利外包管理/福利产品维护.html');"><span class="left_icon_1"><img src="images/left_icon/l_icon_4.gif" style="vertical-align:middle;"/></span>福利外包管理</a>
+      <ul>
+	   <li> <a href="#fuliwaibao-baoxian" class="ll" onclick="javascript:abc('tab/福利外包管理/福利产品维护.html');">福利产品维护</a>
+        </li>
+        <li> <a href="#fuliwaibao-baoxian" class="ll" onclick="javascript:abc('tab/福利外包管理/保险供应商查询.html');">保险供应商管理</a>
+        </li>
+        <li> <a href="#fuliwaibao-baodan" class="ll" onclick="javascript:abc('tab/福利外包管理/保单查询.html');">保单管理</a>
+        </li>
+        <li> <a href="#fuliwaibao-jiatuibao" class="ll" onclick="javascript:abc('tab/福利外包管理/加退保管理.html');">加退保管理</a>
+        </li>
+        <li> <a href="#fuliwaibao-lipei" class="ll" onclick="javascript:abc('tab/福利外包管理/理赔申请单管理.html');">理赔管理</a>
+          <div> 
+		    <span><a href="javascript:abc('tab/福利外包管理/理赔申请单管理.html');">理赔申请单</a></span> 
+			<span><a href="javascript:abc('tab/福利外包管理/理赔申请统计报表.html');">理赔统计表</a></span> 
+            <span><a href="javascript:abc('tab/福利外包管理/付款申请单管理.html');">付款申请单</a></span> 
+          </div>
+        </li>
+        <li> <a href="#fuliwaibao-baoxianzhifu" class="ll" onclick="javascript:abc('tab/福利外包管理/保险报表.html');">保费支付</a>
+          <div> 
+		    <span><a href="javascript:abc('tab/福利外包管理/保险报表.html');">保费报表</a></span> 
+            <span><a href="javascript:abc('tab/福利外包管理/保险支付.html');">保费支付</a></span> 
+          </div>
+        </li>
+        <li> <a href="#fuliwaibao-tijian" class="ll" onclick="javascript:abc('tab/福利外包管理/员工体检.html');">体检管理</a>
+          <div> 
+		    <span><a href="javascript:abc('tab/福利外包管理/员工体检.html');">员工体检</a></span>
+            <span><a href="javascript:abc('tab/福利外包管理/体检支付.html');">体检支付</a></span>  
+            <!--<span><a href="javascript:abc('tab/福利外包管理/体检报告.html');">体检报告</a></span> -->
+          </div>
+        </li>
+        <li> <a href="#fuliwaibao-yaoxiang" class="ll" onclick="javascript:abc('tab/福利外包管理/药箱管理.html');">药箱管理</a>
+        <div> 
+		    <span><a href="javascript:abc('tab/福利外包管理/药箱管理.html');">药箱管理</a></span> 
+            <span><a href="javascript:abc('tab/福利外包管理/利润报表.html');">利润报表</a></span> 
+          </div>
+        </li>
+         <!--<li> <a href="#fuliwaibao-jiacai" class="ll" onclick="javascript:abc('tab/福利外包管理/家财险理赔.html');">家财险管理</a>
+        </li>-->
+      </ul>
+    </li>
+    <!--福利外包 end-->
+     <!--薪资管理-->
+    <li> <a href="#xinzi" onclick="javascript:abc('tab/薪资管理/薪资初始化.html');"><span class="left_icon_1"><img src="images/left_icon/l_icon_11.gif" style="vertical-align:middle;"/></span>薪资管理</a>
+      <ul>
+        <!--<li> <a href="#xinzi-leibie" class="ll" onclick="javascript:abc('tab/薪资管理/薪资类别.html');">薪资类别</a>
+        </li>-->
+        <li> <a href="#xinzi-shuilv" class="ll" onclick="javascript:abc('tab/薪资管理/税率表.html');">税率表</a>
+        </li>
+        <li> <a href="#xinzi-chushihua" class="ll" onclick="javascript:abc('tab/薪资管理/薪资初始化.html');">薪资初始化</a>
+        </li>
+        <li> <a href="#xinzi-xiangmu" class="ll" onclick="javascript:abc('tab/薪资管理/薪资档案.html');">薪资档案</a>
+        </li>
+        <li> <a href="#xinzi-xiangmu" class="ll" onclick="javascript:abc('tab/薪资管理/薪资项目.html');">薪资项目</a>
+        </li>
+        <li> <a href="#xinzi-shuju" class="ll" onclick="javascript:abc('tab/薪资管理/数据接口.html');">数据接口</a>
+        </li>
+        <li> <a href="#xinzi-jisuan" class="ll" onclick="javascript:abc('tab/薪资管理/薪资计算.html');">薪资计算</a>
+        </li>
+        <li> <a href="#xinzi-fafang" class="ll" onclick="javascript:abc('tab/薪资管理/发放申请.html');">发放申请</a>
+          <div> 
+		    <!--span><a href="javascript:abc('tab/薪资管理/审核申请.html');">审核申请</a></span--> 
+            <span><a href="javascript:abc('tab/薪资管理/发放申请.html');">申请发放</a></span>
+            <span><a href="javascript:abc('tab/薪资管理/申请重发.html');">申请重发</a></span>  
+          </div>
+        </li>
+        <li> <a href="#xinzi-shenhe" class="ll" onclick="javascript:abc('tab/薪资管理/工资审核.html');">薪资审核</a>
+        <div> 
+		    <span><a href="javascript:abc('tab/薪资管理/工资审核.html');">工资审核</a></span> 
+            <span><a href="javascript:abc('tab/薪资管理/工资发放.html');">工资发放</a></span>
+            <span><a href="javascript:abc('tab/薪资管理/退票重发.html');">退票重发</a></span>  
+          </div>
+        </li>
+        <li> <a href="#xinzi-zhifu" class="ll" onclick="javascript:abc('tab/薪资管理/薪资支付.html');">薪资支付</a>
+        </li>
+        <li> <a href="#xinzi-baoshui" class="ll" onclick="javascript:abc('tab/薪资管理/报税.html');">报税申报</a>
+        </li> 
+        <li> <a href="#xinzi-tongji" class="ll" onclick="javascript:abc('tab/薪资管理/发放查询.html');">薪资查询</a>
+           <div> 
+		    <span><a href="javascript:abc('tab/薪资管理/发放查询.html');">发放查询</a></span> 
+            <span><a href="javascript:abc('tab/薪资管理/年收入12万查询.html');">12万查询</a></span>
+            <span><a href="javascript:abc('tab/薪资管理/应发平均工资查询.html');">平均工资查询</a></span>  
+          </div>
+        </li>
+
+      </ul>
+    </li>
+    <!--薪资管理 end-->
+     <!--应收应付管理-->
+    <li> <a href="#yingshoufu" onclick="javascript:abc('tab/应收应付管理/生成账单.html');"><span class="left_icon_1"><img src="images/left_icon/l_icon_6.gif" style="vertical-align:middle;"/></span>收付管理</a>
+      <ul>
+        <li> <a href="#yingshoufu-yingshouguanli" class="ll" onclick="javascript:abc('tab/应收应付管理/生成账单.html');">账单管理</a>
+          <div> 
+		    <span><a href="javascript:abc('tab/应收应付管理/生成账单.html');">生成账单</a></span> 
+            <span><a href="javascript:abc('tab/应收应付管理/重算账单.html');">重算账单</a></span>
+            <span><a href="javascript:abc('tab/应收应付管理/账单手工修改.html');">修改账单</a></span> 
+            <!--<span><a href="javascript:abc('tab/应收应付管理/手工修改账单查询.html');"></a></span>
+            <span><a href="javascript:abc('tab/应收应付管理/工资应收合并.html');">工资应收合并</a></span>--> 
+            <span><a href="javascript:abc('tab/应收应付管理/客户一次性收费合并.html');">一次性收费</a></span>
+            <!--<span><a href="javascript:abc('tab/应收应付管理/修改上月账单.html');">修改上月账单</a></span>--> 
+            <span><a href="javascript:abc('tab/应收应付管理/工资应收合并.html');">工资合并账单</a></span> 
+            <span><a href="javascript:abc('tab/应收应付管理/财务结账.html');">账单结账</a></span> 
+            <span><a href="javascript:abc('tab/应收应付管理/查询账单.html');">查询账单</a></span>
+            <span><a href="javascript:abc('tab/应收应付管理/账单打印.html');">打印账单</a></span>
+            <!--<span><a href="javascript:abc('tab/应收应付管理/账单分组维护.html');">账单分组维护</a></span> 
+            <span><a href="javascript:abc('tab/应收应付管理/员工账单分组设置.html');">员工账单分组设置</a></span>--> 
+            <span><a href="javascript:abc('tab/应收应付管理/客户账单锁定.html');">锁定账单</a></span> 
+          </div>
+        </li>
+        <li> <a href="#yingshoufu-shishou" class="ll" onclick="javascript:abc('tab/应收应付管理/查询应收.html');">应收实收</a>
+          <div> 
+		    <span><a href="javascript:abc('tab/应收应付管理/查询应收.html');">查询应收</a></span> 
+            <!--<span><a href="javascript:abc('tab/应收应付管理/开票.html');">开票</a></span>-->
+            <span><a href="javascript:abc('tab/应收应付管理/实收认领.html');">到款认领</a></span>
+            <span><a href="javascript:abc('tab/应收应付管理/北京大表.html');">北京大表</a></span>
+           <!-- <span><a href="javascript:abc('tab/应收应付管理/实收核销.html');">实收核销</a></span>-->  
+            <span><a href="javascript:abc('tab/应收应付管理/开具发票.html');">开具发票</a></span>
+            <span><a href="javascript:abc('tab/应收应付管理/查询到款.html');">查询到款</a></span> 
+            <span><a href="javascript:abc('tab/应收应付管理/查询实收.html');">查询实收</a></span> 
+            <span><a href="javascript:abc('tab/应收应付管理/查询发票.html');">查询发票</a></span>
+            <span><a href="javascript:abc('tab/应收应付管理/查询余额.html');">查询余额</a></span> 
+            <span><a href="javascript:abc('tab/应收应付管理/调整欠款.html');">调整欠款</a></span>
+            <span><a href="javascript:abc('tab/应收应付管理/打印费用明细.html');">打印费用明细</a></span>
+            <!--<span><a href="javascript:abc('tab/应收应付管理/欠款调整查询.html');">欠款调整查询</a></span> 
+            <span><a href="javascript:abc('tab/应收应付管理/欠款调整申请.html');">欠款调整申请</a></span>-->
+          </div>
+        </li>
+        <li> <a href="#yingshoufu-qiankuan" class="ll" onclick="javascript:abc('tab/应收应付管理/支付申请.html');">支付管理</a>
+         <div> 
+		    <span><a href="javascript:abc('tab/应收应付管理/支付申请.html');">申请支付</a></span> 
+            <span><a href="javascript:abc('tab/应收应付管理/异地费用支付申请.html');">异地费用支付</a></span>
+            <span><a href="javascript:abc('tab/应收应付管理/支付查询.html');">支付查询</a></span> 
+			<span><a href="javascript:abc('tab/应收应付管理/垫付查询.html');">垫付查询</a></span> 
+          </div>
+        </li>
+        <!--<li> <a href="#yingshoufu-zhifu" class="ll" onclick="javascript:abc('tab/应收应付管理/支付管理.html');">统计报表</a>
+        </li>-->
+        <li> <a href="#yingshoufu-chuzhang" class="ll" onclick="javascript:abc('tab/应收应付管理/出账统计.html');">出账统计</a>
+        </li>
+        <li> <a href="#yingshoufu-zhangdan" class="ll" onclick="javascript:abc('tab/应收应付管理/账单导入.html');">账单导入</a>
+        </li>
+        <li> <a href="#yingshoufu-hailaer" class="ll" onclick="javascript:abc('tab/应收应付管理/海拉尔账单导出.html');">海拉尔账单导出</a>
+        </li>
+      </ul>
+    </li>
+    <!--应收应付管理 end-->
+     <!--综合统计-->
+    <li> <a href="#zonghe" onclick="javascript:abc('tab/综合统计/销售考核报表.html');"><span class="left_icon_1"><img src="images/left_icon/l_icon_5.gif" style="vertical-align:middle;"/></span>综合统计</a>
+      <ul>
+        <li> <a href="#composite-zhiguan" class="ll" onclick="javascript:abc('tab/综合统计/销售考核报表.html');">质管部统计</a>
+                                               
+		  <div> 
+		  	<span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">员工信息完整率统计</a></span> 
+        <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">客户信息与简档统计</a></span> 
+        <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">新户交接统计</a></span> 
+        <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">撤户备案统计</a></span> 
+          </div>
+		</li>
+		
+		<li> <a href="#composite-xiaoshou" class="ll" onclick="javascript:abc('tab/综合统计/销售考核报表.html');">销售部统计</a>
+		  <div> 
+		    <span><a href="javascript:abc('tab/综合统计/销售考核报表.html');">销售考核报表</a></span> 
+          </div>
+		</li>
+		<li> <a href="#composite-kefu" class="ll" onclick="javascript:abc('tab/综合统计/销售考核报表.html');">客服部统计</a> 
+			<div> 
+       <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">客服服务员工总数统计</a></span> 
+       <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">客服/部门服务性收入统计</a></span> 
+       <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">客服购买产品明细统计</a></span> 
+       <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">务产品收入明细统计</a></span> 
+       <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">客户回款统计</a></span>
+          	</div>
+		</li>
+ 
+		<li> <a href="composite-yunxing" class="ll" onclick="javascript:abc('tab/综合统计/销售考核报表.html');">运行部统计</a> 
+				<div> 
+       <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">福利未分类统计</a></span> 
+       <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">证件办理完成率统计</a></span> 
+        <div>
+
+		</li>
+
+		<li> <a href="#composite-caiwu" class="ll" onclick="javascript:abc('tab/综合统计/销售考核报表.html');">财务部统计</a> 
+			<div> 
+       <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">垫付款统计</a></span> 
+       <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">收付异常统计</a></span> 
+       <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">线下供应商支付汇总统计</a></span> 
+       <span><a href="javascript:abc('tab/综合统计/销售考核报表.html);'">客户收入\成本\利润统计</a></span> 
+          	</div>
+		</li> 
+      </ul>
+    </li>
+    <!--综合统计 end-->
+    <!--系统管理-->
+    <li> <a href="#xitong" onclick="javascript:abc('tab/系统管理/产品类别管理.html');"><span class="left_icon_1"><img src="images/left_icon/l_icon_8.gif" style="vertical-align:middle;"/></span>系统管理</a>
+      <ul>
+        <li> <a href="#america-fuwu" class="ll" onclick="javascript:abc('tab/系统管理/产品类别管理.html');">服务产品管理</a>
+                                               
+		  <div> 
+		  	<span><a href="javascript:abc('tab/系统管理/产品类别管理.html');">产品类别管理</a></span> 
+            <span><a href="javascript:abc('tab/系统管理/服务产品管理.html');">服务产品管理</a></span> 
+          </div>
+		</li>
+		
+		<li> <a href="#america-sbgjj" class="ll" onclick="javascript:abc('tab/系统管理/社保公积金分组管理.html');">社保公积金管理</a>
+		  <div> 
+		    <span><a href="javascript:abc('tab/系统管理/社保产品比例维护.html');">社保产品比例维护</a></span> 
+		  	<span><a href="javascript:abc('tab/系统管理/社保公积金分组管理.html');">社保公积金分组管理</a></span> 
+			<span><a href="javascript:abc('tab/系统管理/入职基础信息维护.html');">入职基础信息维护</a></span>
+			<span><a href="javascript:abc('tab/系统管理/社保产品比例查看.html');">社保产品比例查看</a></span>
+          </div>
+		</li>
+		
+		<li> <a href="#america-sbgjj" class="ll" onclick="javascript:abc('tab/系统管理/分公司社保组配置.html');">分公司社保组配置</a></li>
+		
+		<!--<li> <a href="javascript:abc('tab/系统管理/供应商银行账户管理.html');" class="ll">供应商银行账户管理</a> </li>-->
+		<li> <a href="#america-zzjg" class="ll" onclick="javascript:abc('tab/系统管理/组织架构管理.html');">组织架构管理</a> 
+			<div> 
+		  	<span><a href="javascript:abc('tab/系统管理/组织架构管理.html');">组织架构管理</a></span> 
+            <span><a href="javascript:abc('tab/系统管理/人员档案管理.html');">人员档案管理</a></span> 
+          	</div>
+		</li>
+		<li> <a href="javascript:abc('tab/系统管理/角色配置.html');" class="ll">权限管理</a> 
+			<div> 
+		  	<span><a href="javascript:abc('tab/系统管理/用户管理.html');">用户管理</a></span> 
+            <span><a href="javascript:abc('tab/系统管理/角色管理.html');">角色管理</a></span>
+			<span><a href="javascript:abc('tab/系统管理/菜单管理.html');">菜单管理</a></span>
+			<span><a href="javascript:abc('tab/系统管理/用户授权.html');">用户授权</a></span>
+			<span><a href="javascript:abc('tab/系统管理/角色授权.html');">角色授权</a></span>
+          	</div>
+		</li>
+		<li> <a href="###" class="ll" onclick="javascript:abc('tab/系统管理/登录日志管理.html');">日志管理</a> </li>
+		<!--
+		<li> <a href="###" class="ll">员工数据权限设置</a> </li>
+		<li> <a href="###" class="ll">系统功能定义</a> </li>
+		<li> <a href="javascript:abc('tab/系统管理/权限模版管理.html');" class="ll">权限模版管理</a> </li>
+        <li> <a href="javascript:abc('tab/系统管理/消息发布.html');" class="ll">发送在线人消息</a> </li>
+		-->
+        <li> <a href="javascript:abc('tab/系统管理/发送在线人消息.html');" class="ll">发送在线人消息</a> </li>
+		<li> <a href="javascript:abc('tab/系统管理/信息发布管理.html');" class="ll">信息发布管理</a> </li>
+		<!--<li> <a href="javascript:abc('tab/系统管理/修改身份证.html');" class="ll">修改身份证</a> </li>-->
+      </ul>
+    </li>
+    <!--系统管理 end-->
+    <!--代办任务-->
+     <li> <a href="#task" onclick="javascript:abc('tab/代办任务/账单修改.html');"><span class="left_icon_1"><img src="images/left_icon/l_icon_10.gif" style="vertical-align:middle;"/></span>待办任务</a>
+      <ul>
+        <li> <a href="#task-mingxi" class="ll" onclick="javascript:abc('tab/代办任务/账单修改.html');">账单修改</a></li>
+        <li> <a href="#task-shenhe" class="ll" onclick="javascript:abc('tab/代办任务/开票审核.html');">开票审核</a></li>
+        <li> <a href="#task-tiaozheng" class="ll" onclick="javascript:abc('tab/代办任务/欠款调整.html');">欠款调整</a></li>
+        <li> <a href="#task-mingxi" class="ll" onclick="javascript:abc('tab/代办任务/支付审核.html');">支付审核</a></li>
+      </ul>
+    </li>
+    <!--代办任务 end-->
+    <!--常用工具-->
+     <li> <a href="#tools" onclick="javascript:abc('tab/public/个调税计算.html');"><span class="left_icon_1"><img src="images/left_icon/l_icon_9.gif" style="vertical-align:middle;"/></span>常用工具</a>
+      <ul>
+        <li> <a href="#tools-geshui" class="ll" onclick="javascript:abc('tab/public/个调税计算.html');">个调税计算</a>
+        </li>
+        <li> <a href="#tools-xiaoyan" class="ll" onclick="javascript:abc('tab/public/身份证号码校验.html');">身份证号码校验</a>
+        </li>
+      </ul>
+    </li>
+    <!--常用工具 end-->
+  </ul>
+</div>
+<!--左侧菜单 end-->
+</body>
+</html>

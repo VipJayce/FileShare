@@ -1,0 +1,1118 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"  version="2.4">
+    <display-name>Global Application Platform</display-name>
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>faerp.root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>/WEB-INF/conf/log4j.properties</param-value>
+    </context-param>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/conf/applicationContext/applicationContext.xml,
+/WEB-INF/conf/applicationContext/applicationContext-ajaxControl-sample.xml,
+/WEB-INF/conf/applicationContext/applicationContext-ajaxControl.xml,
+/WEB-INF/conf/applicationContext/applicationContext-api.xml,
+/WEB-INF/conf/applicationContext/applicationContext-authentication.xml,
+/WEB-INF/conf/applicationContext/applicationContext-authority.xml,
+/WEB-INF/conf/applicationContext/applicationContext-blacklist.xml,
+/WEB-INF/conf/applicationContext/applicationContext-bnLog-extend.xml,
+/WEB-INF/conf/applicationContext/applicationContext-bnLog.xml,
+/WEB-INF/conf/applicationContext/applicationContext-bookstore.xml,
+/WEB-INF/conf/applicationContext/applicationContext-codegen.xml,
+/WEB-INF/conf/applicationContext/applicationContext-commoncollective.xml,
+/WEB-INF/conf/applicationContext/applicationContext-complexTemplate.xml,
+/WEB-INF/conf/applicationContext/applicationContext-dd-commonTemplate.xml,
+/WEB-INF/conf/applicationContext/applicationContext-dd-demo.xml,
+/WEB-INF/conf/applicationContext/applicationContext-dd-MDTemplate.xml,
+/WEB-INF/conf/applicationContext/applicationContext-dd-scenario.xml,
+/WEB-INF/conf/applicationContext/applicationContext-dd-template.xml,
+/WEB-INF/conf/applicationContext/applicationContext-dd.xml,
+/WEB-INF/conf/applicationContext/applicationContext-dictionary.xml,
+/WEB-INF/conf/applicationContext/applicationContext-etl-database.xml,
+/WEB-INF/conf/applicationContext/applicationContext-etl-fescoSH.xml,
+/WEB-INF/conf/applicationContext/applicationContext-i18n.xml,
+/WEB-INF/conf/applicationContext/applicationContext-messageservice-etl.xml,
+/WEB-INF/conf/applicationContext/applicationContext-messageservice.xml,
+/WEB-INF/conf/applicationContext/applicationContext-model.xml,
+/WEB-INF/conf/applicationContext/applicationContext-quartz-job.xml,
+/WEB-INF/conf/applicationContext/applicationContext-report.xml,
+/WEB-INF/conf/applicationContext/applicationContext-simpleTemplate.xml,
+/WEB-INF/conf/applicationContext/applicationContext-update.xml,
+/WEB-INF/conf/applicationContext/applicationContext-warning-test.xml,
+/WEB-INF/conf/applicationContext/applicationContext-warning.xml,
+/WEB-INF/conf/applicationContext/applicationContext-workcalendar.xml,
+/WEB-INF/conf/applicationContext/applicationContext-workflow-businessData.xml,
+/WEB-INF/conf/applicationContext/applicationContext-workflow-extend.xml,
+/WEB-INF/conf/applicationContext/applicationContext-workflow-flowDesign.xml,
+/WEB-INF/conf/applicationContext/applicationContext-workflow-formDesign.xml,
+/WEB-INF/conf/applicationContext/applicationContext-workflow-integration.xml,
+/WEB-INF/conf/applicationContext/applicationContext-workflow-main.xml,
+/WEB-INF/conf/applicationContext/applicationContext-workflow-persistent.xml,
+/WEB-INF/conf/applicationContext/applicationContext-workflow-relevantData.xml,
+/WEB-INF/conf/applicationContext/applicationContext-workflow-running.xml,
+/WEB-INF/conf/applicationContext/applicationContext-system.xml,
+/WEB-INF/conf/applicationContext/applicationContext-sales.xml,
+/WEB-INF/conf/applicationContext/applicationContext-monitor.xml,
+/WEB-INF/conf/applicationContext/applicationContext-common.xml,
+/WEB-INF/conf/applicationContext/applicationContext-faerp-ajax.xml
+/WEB-INF/conf/applicationContext/applicationContext-finance.xml,
+/WEB-INF/conf/applicationContext/applicationContext-customerservice.xml,
+/WEB-INF/conf/applicationContext/applicationContext-employeepost.xml,
+/WEB-INF/conf/applicationContext/applicationContext-finance.xml,
+/WEB-INF/conf/applicationContext/applicationContext-salary.xml,
+/WEB-INF/conf/applicationContext/applicationContext-checkIdCard.xml,
+/WEB-INF/conf/applicationContext/applicationContext-insurance.xml,
+/WEB-INF/conf/applicationContext/applicationContext-u8.xml,
+/WEB-INF/conf/applicationContext/applicationContext-special.xml,
+/WEB-INF/conf/applicationContext/applicationContext-workattendance.xml,
+/WEB-INF/conf/applicationContext/applicationContext-agent.xml,
+/WEB-INF/conf/applicationContext/applicationContext-job.xml,
+/WEB-INF/conf/applicationContext/applicationContext-finout.xml,
+/WEB-INF/conf/applicationContext/applicationContext-ibd.xml,
+/WEB-INF/conf/applicationContext/applicationContext-pps.xml,
+/WEB-INF/conf/applicationContext/applicationContext-ge.xml,
+/WEB-INF/conf/applicationContext/applicationContext-certificate.xml,
+/WEB-INF/conf/applicationContext/applicationContext-workTimeApply.xml,
+/WEB-INF/conf/applicationContext/applicationContext-cardType.xml,
+/WEB-INF/conf/applicationContext/applicationContext-workInjured.xml,
+/WEB-INF/conf/applicationContext/applicationContext-mailReceive.xml,
+/WEB-INF/conf/applicationContext/applicationContext-elfhand.xml,
+/WEB-INF/conf/applicationContext/applicationContext-crmcustomer.xml,
+/WEB-INF/conf/applicationContext/applicationContext-schedulerquartz.xml,
+/WEB-INF/conf/applicationContext/applicationContext-uav-laborSocialSecurity.xml
+</param-value>
+    </context-param>
+        <!-- start report context-param config -->
+        <!-- liuping close BIRT >
+    <context-param>
+        <param-name>BIRT_VIEWER_LOCALE</param-name>
+        <param-value>en-US</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>BIRT_VIEWER_WORKING_FOLDER</param-name>
+        <param-value></param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>BIRT_VIEWER_DOCUMENT_FOLDER</param-name>
+        <param-value></param-value>
+    </context-param>
+    -->
+    
+    
+
+    <!-- If usr can only access the reprot and document under document folder. Default is false -->
+    <context-param>
+        <param-name>DOCUMENT_FOLDER_ACCESS_ONLY</param-name>
+        <param-value>false</param-value>
+    </context-param>
+<servlet>
+	<servlet-name>jsonServlet</servlet-name>
+	<servlet-class>rayoo.common.filter.JsonServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jsonServlet</servlet-name>
+	<url-pattern>/jsonServlet</url-pattern>
+</servlet-mapping>
+
+    <!-- Absolute downloaded image/chart directory. Default to ${birt home}/report/images -->
+      <!-- liuping close BIRT >
+    <context-param>
+        <param-name>BIRT_VIEWER_IMAGE_DIR</param-name>
+        <param-value></param-value>
+    </context-param>
+
+  
+       
+    <context-param>
+        <param-name>BIRT_VIEWER_LOG_DIR</param-name>
+        <param-value></param-value>
+    </context-param>
+
+    
+    <context-param>
+        <param-name>BIRT_VIEWER_LOG_LEVEL</param-name>
+        <param-value>OFF</param-value>
+    </context-param>
+
+   
+    <context-param>
+        <param-name>BIRT_VIEWER_SCRIPTLIB_DIR</param-name>
+        <param-value></param-value>
+    </context-param>
+
+    
+    <context-param>
+        <param-name>BIRT_RESOURCE_PATH</param-name>
+        <param-value></param-value>
+    </context-param>
+
+     
+    <context-param>
+        <param-name>BIRT_VIEWER_MAX_ROWS</param-name>
+        <param-value></param-value>
+    </context-param>
+
+     
+    <context-param>
+        <param-name>BIRT_OVERWRITE_DOCUMENT</param-name>
+        <param-value>true</param-value>
+    </context-param>
+   
+
+-->
+
+
+<!--   邮件审核链接过滤 tanyanjun  -->
+
+  
+    
+     <filter>
+        <filter-name>emailUserLoginFilter</filter-name>
+        <filter-class>rayoo.common.filter.EmailUserLoginFilter</filter-class>
+    </filter>
+
+       <filter-mapping>
+        <filter-name>emailUserLoginFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+  <!--刘平添加2012-08-18 用户信息过滤和共享-->
+    <filter>
+        <filter-name>userInfoFilter</filter-name>
+        <filter-class>rayoo.common.filter.UserInfoFilter</filter-class>
+    </filter>
+
+       <filter-mapping>
+        <filter-name>userInfoFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    
+       <filter-mapping>
+        <filter-name>userInfoFilter</filter-name>
+        <url-pattern>*.dwr</url-pattern>  
+    </filter-mapping>
+    
+     <filter-mapping>
+        <filter-name>userInfoFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>  
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>Set Character Encoding</filter-name>
+        <filter-class>venus.frames.web.SetEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter>
+        <filter-name>NoCache</filter-name>
+        <filter-class>venus.frames.web.ResponseHeaderFilter</filter-class>
+        <init-param>
+            <param-name>Cache-Control</param-name>
+            <param-value>no-cache, must-revalidate</param-value>
+        </init-param>
+    </filter>
+    
+   
+       <filter>
+        <filter-name>printCmd</filter-name>
+        <filter-class>com.alexander.login.RequestFilter</filter-class>
+       </filter>
+    
+    <filter>
+        <filter-name>CacheForWeek</filter-name>
+        <filter-class>venus.frames.web.ResponseHeaderFilter</filter-class>
+        <init-param>
+            <param-name>Cache-Control</param-name>
+            <param-value>max-age=604800, public</param-value>
+        </init-param>
+    </filter>
+    <filter>
+        <filter-name>Locale Filter</filter-name>
+        <filter-class>venus.frames.i18n.filter.LocalFilter</filter-class>
+    </filter>
+    <filter>
+    <filter-name>Au Filter</filter-name>
+    <filter-class>gap.authority.filter.FilterServlet</filter-class>
+</filter>
+<filter>
+    <filter-name>FunOrgAu Filter</filter-name>
+    <filter-class>gap.authority.filter.FunOrgAuFilterServlet</filter-class>
+</filter>
+<filter>
+    <filter-name>SQLInjection Filter</filter-name>
+    <filter-class>gap.authority.filter.SQLInjectionFilterServlet</filter-class>
+    <init-param>
+        <param-name>regularExpression</param-name>
+        <param-value>.*([;]+|(--)+).*</param-value>
+    </init-param>
+</filter>
+<filter>
+    <filter-name>BlackListAu Filter</filter-name>
+    <filter-class>gap.authority.filter.BlackListFilter</filter-class>
+</filter>
+<!-- filter>
+    <filter-name>CAS Filter</filter-name>
+    <filter-class>edu.yale.its.tp.cas.client.filter.CASFilter</filter-class>
+    <init-param>
+        <param-name>edu.yale.its.tp.cas.client.filter.loginUrl</param-name>
+        <param-value>https://10.64.3.222:8443/cas/login</param-value>
+    </init-param>
+    <init-param>
+        <param-name>edu.yale.its.tp.cas.client.filter.validateUrl</param-name>
+        <param-value>https://aclserver:8443/cas/serviceValidate</param-value>
+    </init-param>
+    <init-param>
+        <param-name>edu.yale.its.tp.cas.client.filter.serverName</param-name>
+        <param-value>127.0.0.1:9999</param-value>
+    </init-param>
+</filter-->
+    <!---->
+        <filter>
+        <filter-name>BnLogFilter</filter-name>
+        <filter-class>gap.bnLog.filter.BnLogFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>CommitFilter</filter-name>
+        <filter-class>com.alexander.workflow.extend.filter.CommitFilter</filter-class>
+    </filter>
+   
+    <filter-mapping>
+        <filter-name>printCmd</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>IntegrationFilter</filter-name>
+        <filter-class>gap.wf.integration.common.filter.Filter4WF</filter-class>
+    </filter>
+    <!--Set Character Encoding-->
+    <filter-mapping>
+        <filter-name>Set Character Encoding</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+  
+    <filter-mapping>
+        <filter-name>Set Character Encoding</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+  
+    <filter-mapping>
+        <filter-name>Locale Filter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>Locale Filter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    
+    <!--
+      -->
+    <!--
+    <filter-mapping>
+        <filter-name>NoCache</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>NoCache</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>CacheForWeek</filter-name>
+        <url-pattern>*.gif</url-pattern>
+    </filter-mapping>
+    -->
+    <!--
+<filter-mapping>
+    <filter-name>Au Filter</filter-name>
+    <url-pattern>*.do</url-pattern>
+</filter-mapping>
+
+<filter-mapping>
+    <filter-name>Au Filter</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+</filter-mapping>
+-->
+<!--
+<filter-mapping>
+    <filter-name>FunOrgAu Filter</filter-name>
+    <url-pattern>*.do</url-pattern>
+</filter-mapping>
+
+<filter-mapping>
+    <filter-name>FunOrgAu Filter</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+</filter-mapping>
+-->
+<!--
+<filter-mapping>
+    <filter-name>SQLInjection Filter</filter-name>
+    <url-pattern>*.do</url-pattern>
+</filter-mapping>
+-->
+
+<!--
+<filter-mapping>
+    <filter-name>BlackListAu Filter</filter-name>
+    <url-pattern>/LoginAction.do</url-pattern>
+</filter-mapping>
+-->
+<!--
+<filter-mapping>
+    <filter-name>CAS Filter</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+</filter-mapping>
+<filter-mapping>
+    <filter-name>CAS Filter</filter-name>
+    <url-pattern>*.do</url-pattern>
+</filter-mapping>
+-->
+    <!--
+
+-->
+<!--
+        <filter-mapping>
+        <filter-name>BnLogFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    -->
+    
+        <filter-mapping>
+        <filter-name>CommitFilter</filter-name>
+        <url-pattern>/committask.do</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>CommitFilter</filter-name>
+        <url-pattern>/commitDocumentAction.do</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>CommitFilter</filter-name>
+        <url-pattern>/committaskAccomplishProcInst.do</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>IntegrationFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+        <!--start report listener config -->
+        <!-- liuping close
+    <listener>
+        <listener-class>
+            org.eclipse.birt.report.listener.ViewerServletContextListener
+        </listener-class>
+    </listener>
+    <-->
+    <!-- end report listener config -->
+    <listener>
+    <listener-class>gap.msg.servlet.listener.SessionUserParaMng</listener-class>
+</listener>
+    <!--  Action Servlet Configuration  -->
+    <servlet>
+        <servlet-name>action</servlet-name>
+        <servlet-class>venus.frames.base.action.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>CLASS_CAN_NO_FOUND</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>USE_VENUS_ROOT</param-name>
+            <param-value>/</param-value>
+        </init-param>
+        <init-param>
+            <param-name>WAR_NAME</param-name>
+            <param-value>faerp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>init-classes</param-name>
+            <param-value>
+                venus.frames.mainframe.util.InitPathPlugIn;venus.frames.mainframe.util.InitBeanFactoryPlugIn;venus.frames.mainframe.taskmgr.ServiceKeeperStartPlugIn;venus.frames.mainframe.util.InitEnumLoaderPlugin;venus.frames.mainframe.ncache.InitCachePlugin
+                ;gap.dd.util.InitDDCachePlugin
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/conf/struts-config/struts-config.xml,
+/WEB-INF/conf/struts-config/struts-config-ajax.xml,
+/WEB-INF/conf/struts-config/struts-config-authority.xml,
+/WEB-INF/conf/struts-config/struts-config-bnLog.xml,
+/WEB-INF/conf/struts-config/struts-config-bookstore.xml,
+/WEB-INF/conf/struts-config/struts-config-codegen.xml,
+/WEB-INF/conf/struts-config/struts-config-commoncollective.xml,
+/WEB-INF/conf/struts-config/struts-config-complexTemplate.xml,
+/WEB-INF/conf/struts-config/struts-config-dd-commonTemplate.xml,
+/WEB-INF/conf/struts-config/struts-config-dd-demo.xml,
+/WEB-INF/conf/struts-config/struts-config-dd-MDTemplate.xml,
+/WEB-INF/conf/struts-config/struts-config-dd-scenario.xml,
+/WEB-INF/conf/struts-config/struts-config-dd-template.xml,
+/WEB-INF/conf/struts-config/struts-config-dd.xml,
+/WEB-INF/conf/struts-config/struts-config-dictionary.xml,
+/WEB-INF/conf/struts-config/struts-config-messsageservice.xml,
+/WEB-INF/conf/struts-config/struts-config-quartz.xml,
+/WEB-INF/conf/struts-config/struts-config-report.xml,
+/WEB-INF/conf/struts-config/struts-config-simpleTemplate.xml,
+/WEB-INF/conf/struts-config/struts-config-warning.xml,
+/WEB-INF/conf/struts-config/struts-config-workflow-businessData.xml,
+/WEB-INF/conf/struts-config/struts-config-workflow-flowDesign.xml,
+/WEB-INF/conf/struts-config/struts-config-workflow-formDesign.xml,
+/WEB-INF/conf/struts-config/struts-config-workflow-integration.xml,
+/WEB-INF/conf/struts-config/struts-config-workflow.xml,
+/WEB-INF/conf/struts-config/struts-config-system.xml,
+/WEB-INF/conf/struts-config/struts-config-sales.xml,
+/WEB-INF/conf/struts-config/struts-config-common.xml,
+/WEB-INF/conf/struts-config/struts-config-finance.xml,
+/WEB-INF/conf/struts-config/struts-config-customerservice.xml,
+/WEB-INF/conf/struts-config/struts-config-employeepost.xml,
+/WEB-INF/conf/struts-config/struts-config-salary.xml,
+/WEB-INF/conf/struts-config/struts-config-checkIdCrad.xml,
+/WEB-INF/conf/struts-config/struts-config-insurance.xml,
+/WEB-INF/conf/struts-config/struts-config-u8.xml,
+/WEB-INF/conf/struts-config/struts-config-special.xml,
+/WEB-INF/conf/struts-config/struts-config-monitor.xml,
+/WEB-INF/conf/struts-config/struts-config-workattendance.xml,
+/WEB-INF/conf/struts-config/struts-config-agent.xml,
+/WEB-INF/conf/struts-config/struts-config-job.xml,
+/WEB-INF/conf/struts-config/struts-config-finout.xml,
+/WEB-INF/conf/struts-config/struts-config-ibd.xml,
+/WEB-INF/conf/struts-config/struts-config-pps.xml,
+/WEB-INF/conf/struts-config/struts-config-ge.xml,
+/WEB-INF/conf/struts-config/struts-config-exchange.xml,
+/WEB-INF/conf/struts-config/struts-config-certificate.xml,
+/WEB-INF/conf/struts-config/struts-config-workTimeApply.xml,
+/WEB-INF/conf/struts-config/struts-config-cardType.xml,
+/WEB-INF/conf/struts-config/struts-config-workInjured.xml,
+/WEB-INF/conf/struts-config/struts-config-mailReceive.xml,
+/WEB-INF/conf/struts-config/struts-config-elfhand.xml,
+/WEB-INF/conf/struts-config/struts-config-red.xml
+</param-value>
+        </init-param>
+        <init-param>
+            <param-name>service-classes</param-name>
+            <param-value />
+        </init-param>
+        <init-param>
+            <param-name>dispatch-classes</param-name>
+            <param-value />
+        </init-param>
+        <init-param>
+            <param-name>USE_VENUS_TMP</param-name>
+            <param-value>/tmp/</param-value>
+        </init-param>
+        <init-param>
+            <param-name>detail</param-name>
+            <param-value>2</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+        <servlet>
+        <servlet-name>DefinitionInitializer</servlet-name>
+        <servlet-class>gap.quartz.action.DefinitionInitializer</servlet-class>
+        <init-param>
+            <param-name>definition-file</param-name>
+            <param-value>/WEB-INF/conf/JobDefinitions.xml</param-value>
+            <!-- 
+                if (PATH_TO_DEFINITIONS_FILE) is left as such, definitions are loaded from 
+                 /WEB-INF/classes/JobDefinitions.xml 
+             -->    
+        </init-param>
+        <init-param>
+        <param-name>config-file</param-name>
+            <param-value>/WEB-INF/conf/quartz.properties</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+        <!--  start report servlet config 
+    <servlet>
+        <servlet-name>ViewerServlet</servlet-name>
+        <servlet-class>
+            org.eclipse.birt.report.servlet.ViewerServlet
+        </servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EngineServlet</servlet-name>
+        <servlet-class>
+            org.eclipse.birt.report.servlet.BirtEngineServlet
+        </servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>reportService</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+    </servlet>
+ -->
+    <!--  end report servlet config  -->
+
+        <servlet> 
+        <servlet-name>dwr-sample-invoker</servlet-name> 
+        <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class> 
+        <init-param>
+            <param-name>pollAndCometEnabled</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        
+        <init-param>
+       <param-name>debug</param-name>
+       <param-value>true</param-value>
+     </init-param>
+        
+        <init-param> 
+            <param-name>config-ajax-sample</param-name> 
+            <param-value>/WEB-INF/conf/dwr/dwr-sample.xml</param-value> 
+        </init-param> 
+       <!--liuping 2013-03-25 安全性--> 
+        <init-param>
+   <param-name>logLevel</param-name>
+   <param-value>warn</param-value>
+  </init-param>
+  <init-param>
+   <param-name>crossDomainSessionSecurity</param-name>
+   <param-value>false</param-value>
+  </init-param>
+
+        <load-on-startup>-1</load-on-startup>
+    </servlet> 
+
+    <servlet>
+        <servlet-name>dwr-invoker</servlet-name>
+         <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+         <init-param>
+             <param-name>debug</param-name>
+             <param-value>false</param-value>
+         </init-param>
+         <init-param>
+            <param-name>pollAndCometEnabled</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param> 
+            <param-name>config-ajax</param-name> 
+            <param-value>/WEB-INF/conf/dwr/dwr.xml</param-value> 
+        </init-param> 
+         
+        <init-param>
+   <param-name>logLevel</param-name>
+   <param-value>warn</param-value>
+  </init-param>
+  <init-param>
+   <param-name>crossDomainSessionSecurity</param-name>
+   <param-value>false</param-value>
+  </init-param>
+        <load-on-startup>-1</load-on-startup>
+    </servlet>
+    
+        <servlet>
+        <servlet-name>dwr-dd-invoker</servlet-name>
+         <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+         <init-param>
+             <param-name>debug</param-name>
+             <param-value>false</param-value>
+         </init-param>
+         <init-param>
+            <param-name>pollAndCometEnabled</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param> 
+            <param-name>config-ajax</param-name> 
+            <param-value>/WEB-INF/conf/dwr/dwr-dd.xml</param-value> 
+        </init-param> 
+        
+           <!--liuping2013-03-25 安全性--> 
+        <init-param>
+   <param-name>logLevel</param-name>
+   <param-value>warn</param-value>
+  </init-param>
+  <init-param>
+   <param-name>crossDomainSessionSecurity</param-name>
+   <param-value>false</param-value>
+  </init-param>
+        <load-on-startup>-1</load-on-startup>
+        
+    </servlet>
+    <servlet>
+        <servlet-name>dwr-dd-demo-invoker</servlet-name>
+         <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+         <init-param>
+             <param-name>debug</param-name>
+             <param-value>false</param-value>
+         </init-param>
+         <init-param>
+            <param-name>pollAndCometEnabled</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param> 
+            <param-name>config-ajax</param-name> 
+            <param-value>/WEB-INF/conf/dwr/dwr-dd-demo.xml</param-value> 
+        </init-param> 
+        <load-on-startup>-1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>dwr-dd-commonTemplate-invoker</servlet-name>
+        <servlet-class>
+            org.directwebremoting.servlet.DwrServlet
+        </servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
+            <param-name>pollAndCometEnabled</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>config-ajax</param-name>
+            <param-value>/WEB-INF/conf/dwr/dwr-dd-commonTemplate.xml</param-value>
+        </init-param>
+           <!--liuping2013-03-25 安全性--> 
+        <init-param>
+   <param-name>logLevel</param-name>
+   <param-value>warn</param-value>
+  </init-param>
+  <init-param>
+   <param-name>crossDomainSessionSecurity</param-name>
+   <param-value>false</param-value>
+  </init-param>
+        <load-on-startup>-1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>dwr-dd-MDTemplate-invoker</servlet-name>
+        <servlet-class>
+            org.directwebremoting.servlet.DwrServlet
+        </servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
+            <param-name>pollAndCometEnabled</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>config-ajax</param-name>
+            <param-value>/WEB-INF/conf/dwr/dwr-dd-MDTemplate.xml</param-value>
+        </init-param>
+        <load-on-startup>-1</load-on-startup>
+    </servlet>
+
+        <servlet>
+        <servlet-name>dwr-workflow</servlet-name>
+        <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+            <init-param>
+                <param-name>debug</param-name>
+                <param-value>true</param-value>
+            </init-param>
+            <init-param>
+                <param-name>pollAndCometEnabled</param-name>
+                <param-value>true</param-value>
+            </init-param>
+            <init-param> 
+                <param-name>config-ajax</param-name> 
+                <param-value>/WEB-INF/conf/dwr/dwr-workflow.xml</param-value> 
+            </init-param> 
+               <!--liuping2013-03-25 --> 
+        <init-param>
+   <param-name>logLevel</param-name>
+   <param-value>warn</param-value>
+  </init-param>
+  <init-param>
+   <param-name>crossDomainSessionSecurity</param-name>
+   <param-value>false</param-value>
+  </init-param>
+        <load-on-startup>-1</load-on-startup>
+    </servlet>
+
+    <servlet>
+    <servlet-name>dwr-message-invoker</servlet-name>
+        <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+    <init-param>
+        <param-name>debug</param-name>
+        <param-value>true</param-value>
+    </init-param>
+    <init-param>
+        <param-name>pollAndCometEnabled</param-name>
+        <param-value>true</param-value>
+    </init-param>
+    <init-param> 
+        <param-name>config-ajax</param-name> 
+        <param-value>/WEB-INF/conf/dwr/dwr-message.xml</param-value> 
+    </init-param> 
+       <!--liuping2013-03-25 --> 
+        <init-param>
+   <param-name>logLevel</param-name>
+   <param-value>warn</param-value>
+  </init-param>
+  <init-param>
+   <param-name>crossDomainSessionSecurity</param-name>
+   <param-value>false</param-value>
+  </init-param>
+    <load-on-startup>-1</load-on-startup>
+</servlet>
+    <servlet>
+    <servlet-name>jcaptcha</servlet-name>
+    <servlet-class>gap.authority.login.tools.ImageCaptchaServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+</servlet>
+<servlet>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <servlet-class>
+       org.springframework.web.servlet.DispatcherServlet
+    </servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/conf/applicationContext/applicationContext-authentication.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+<servlet> 
+    <servlet-name>dwr-workcalendar-invoker</servlet-name> 
+ 
+    <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+    <init-param>
+        <param-name>pollAndCometEnabled</param-name>
+        <param-value>false</param-value>
+    </init-param> 
+    <init-param> 
+        <param-name>config-ajax-sample</param-name> 
+        <param-value>/WEB-INF/conf/dwr/dwr-workcalendar.xml</param-value> 
+    </init-param> 
+       <!--liuping2013-03-25 --> 
+        <init-param>
+   <param-name>logLevel</param-name>
+   <param-value>warn</param-value>
+  </init-param>
+  <init-param>
+   <param-name>crossDomainSessionSecurity</param-name>
+   <param-value>false</param-value>
+  </init-param>
+    <load-on-startup>-1</load-on-startup>
+</servlet> 
+    <servlet>
+        <servlet-name>dwr-warning</servlet-name>
+         <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+         <init-param>
+             <param-name>debug</param-name>
+             <param-value>false</param-value>
+         </init-param>
+         <init-param>
+            <param-name>pollAndCometEnabled</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param> 
+            <param-name>config-ajax</param-name> 
+            <param-value>/WEB-INF/conf/dwr/dwr-warning.xml</param-value> 
+        </init-param> 
+           <!--liuping2013-03-25 --> 
+        <init-param>
+   <param-name>logLevel</param-name>
+   <param-value>warn</param-value>
+  </init-param>
+  <init-param>
+   <param-name>crossDomainSessionSecurity</param-name>
+   <param-value>false</param-value>
+  </init-param>
+        <load-on-startup>-1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>Admin</servlet-name>
+        <servlet-class>org.logicalcobwebs.proxool.admin.servlet.AdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cacheInfoServlet</servlet-name>
+        <servlet-class>venus.frames.mainframe.ncache.CacheInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cacheInfoServlet</servlet-name>
+        <url-pattern>/cacheInfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin</servlet-name>
+        <url-pattern>/proxool</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+        <!--  start report servlet-mapping config 
+    <servlet-mapping>
+        <servlet-name>ViewerServlet</servlet-name>
+        <url-pattern>/frameset</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EngineServlet</servlet-name>
+        <url-pattern>/run</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>EngineServlet</servlet-name>
+        <url-pattern>/preview</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EngineServlet</servlet-name>
+        <url-pattern>/download</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EngineServlet</servlet-name>
+        <url-pattern>/parameter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EngineServlet</servlet-name>
+        <url-pattern>/document</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EngineServlet</servlet-name>
+        <url-pattern>/output</url-pattern>
+    </servlet-mapping>
+  
+    <servlet-mapping>
+        <servlet-name>reportService</servlet-name>
+        <url-pattern>/report.service</url-pattern>
+    </servlet-mapping>
+   -->
+    <!--  end report servlet-mapping config  -->
+        <servlet-mapping>
+        <servlet-name>dwr-sample-invoker</servlet-name>
+        <url-pattern>/dwrsample/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dwr-invoker</servlet-name>
+        <url-pattern>/dwr/*</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>dwr-dd-invoker</servlet-name>
+        <url-pattern>/dwrdd/*</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>dwr-dd-demo-invoker</servlet-name>
+        <url-pattern>/dwrdddemo/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dwr-dd-commonTemplate-invoker</servlet-name>
+        <url-pattern>/dwrddcommonTemplate/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dwr-dd-MDTemplate-invoker</servlet-name>
+        <url-pattern>/dwrddMDTemplate/*</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>dwr-workflow</servlet-name>
+        <url-pattern>/dwrworkflow/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>dwr-message-invoker</servlet-name>
+    <url-pattern>/dwrmessage/*</url-pattern>
+</servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>jcaptcha</servlet-name>
+    <url-pattern>/jcaptcha</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>dwr-workcalendar-invoker</servlet-name>
+    <url-pattern>/workcalendar/*</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <url-pattern>*.service</url-pattern>
+</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dwr-warning</servlet-name>
+        <url-pattern>/dwrwarning/*</url-pattern>
+    </servlet-mapping>
+    <!--  Session Timeout Configuration  -->
+    
+    
+    
+    
+    
+    
+      <servlet>
+    <servlet-name>reportServlet</servlet-name>
+    <servlet-class>com.runqian.report4.view.ReportServlet</servlet-class>
+    <init-param>
+      <param-name>configFile</param-name>
+      <param-value>/WEB-INF/reportConfig.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  
+  <servlet>
+    <servlet-name>DMServlet</servlet-name>
+    <servlet-class>com.raq.web.view.DMServlet</servlet-class>
+    <init-param>
+      <param-name>configFile</param-name>
+      <param-value>/WEB-INF/dmConfig.xml</param-value>
+    </init-param>
+    <load-on-startup>10</load-on-startup>
+  </servlet>
+
+  <servlet>
+  	<servlet-name>ReportInterfaceLoginServlet</servlet-name>
+  	<servlet-class>rayoo.common.filter.ReportInterfaceLoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>EmailUserLoginServlet</servlet-name>
+  	<servlet-class>rayoo.common.filter.EmailUserLoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>RestInterfaceLoginServlet</servlet-name>
+  	<servlet-class>rayoo.common.filter.RestInterfaceLoginServlet</servlet-class>
+  </servlet>
+    
+  <servlet>
+  	<servlet-name>RestBpoInterfaceLoginServlet</servlet-name>
+  	<servlet-class>rayoo.common.filter.RestBpoInterfaceLoginServlet</servlet-class>
+  </servlet>
+    
+    <servlet-mapping>
+    <servlet-name>reportServlet</servlet-name>
+    <url-pattern>/reportServlet</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>DMServlet</servlet-name>
+    <url-pattern>/DMServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DMServlet</servlet-name>
+    <url-pattern>/DMServletAjax</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>ReportInterfaceLoginServlet</servlet-name>
+  	<url-pattern>/ReportInterfaceLoginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>EmailUserLoginServlet</servlet-name>
+  	<url-pattern>/EmailUserLoginServlet</url-pattern>
+  </servlet-mapping>
+    
+  <servlet-mapping>
+  	<servlet-name>RestInterfaceLoginServlet</servlet-name>
+  	<url-pattern>/RestInterfaceLoginServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+  	<servlet-name>RestBpoInterfaceLoginServlet</servlet-name>
+  	<url-pattern>/RestBpoInterfaceLoginServlet</url-pattern>
+  </servlet-mapping>
+    
+    
+    
+    
+    
+    
+    
+    
+    <session-config>
+        <session-timeout>0</session-timeout>
+    </session-config>
+    <!--mime type for htc,rar,css,wsdl,xsd-->
+    <mime-mapping>
+        <extension>htc</extension>
+        <mime-type>text/x-component</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>rar</extension>
+        <mime-type>application/octet-stream</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>pdf</extension>
+        <mime-type>application/pdf</mime-type>
+    </mime-mapping>
+    
+    <mime-mapping>
+        <extension>css</extension>
+        <mime-type>text/css</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>wsdl</extension>
+        <mime-type>text/xml</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>xsd</extension>
+        <mime-type>text/xml</mime-type>
+    </mime-mapping>
+    <!--The Welcome File List-->
+    <welcome-file-list>
+        <welcome-file>jsp/login/login.jsp</welcome-file>
+    </welcome-file-list>
+    <!--Struts Tag Library Descriptors-->
+    <jsp-config>
+       
+    	<taglib>
+            <taglib-uri>/WEB-INF/struts-bean.tld</taglib-uri>
+            <taglib-location>/WEB-INF/tld/struts-bean.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>/WEB-INF/struts-html.tld</taglib-uri>
+            <taglib-location>/WEB-INF/tld/struts-html.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>/WEB-INF/struts-logic.tld</taglib-uri>
+            <taglib-location>/WEB-INF/tld/struts-logic.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>/WEB-INF/struts-template.tld</taglib-uri>
+            <taglib-location>/WEB-INF/tld/struts-template.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>/WEB-INF/struts-layout.tld</taglib-uri>
+            <taglib-location>/WEB-INF/tld/struts-layout.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>/WEB-INF/gap-html.tld</taglib-uri>
+            <taglib-location>/WEB-INF/tld/gap-html.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>/WEB-INF/gap-i18n.tld</taglib-uri>
+            <taglib-location>/WEB-INF/tld/gap-i18n.tld</taglib-location>
+        </taglib>
+            <taglib>
+        <taglib-uri>/WEB-INF/gap-data.tld</taglib-uri>
+        <taglib-location>/WEB-INF/tld/gap-data.tld</taglib-location>
+    </taglib>
+                <taglib>
+            <taglib-uri>/WEB-INF/gap-bnLog.tld</taglib-uri>
+            <taglib-location>/WEB-INF/tld/gap-bnLog.tld</taglib-location>
+        </taglib>
+        <taglib>
+    <taglib-uri>/WEB-INF/gap-authority.tld</taglib-uri>
+    <taglib-location>/WEB-INF/tld/gap-authority.tld</taglib-location>
+</taglib>
+<taglib>
+    <taglib-uri>/WEB-INF/sslext.tld</taglib-uri>
+    <taglib-location>/WEB-INF/tld/sslext.tld</taglib-location>
+</taglib>
+            <taglib>
+        <taglib-uri>/WEB-INF/gap-dd.tld</taglib-uri>
+        <taglib-location>/WEB-INF/tld/gap-dd.tld</taglib-location>
+    </taglib>
+    <!--业务标签-->
+    
+    
+          <taglib>
+    <taglib-uri>/WEB-INF/runqianReport4.tld</taglib-uri>
+    <taglib-location>/WEB-INF/runqianReport4.tld</taglib-location>
+  </taglib>
+    
+    
+    
+       <taglib>
+        <taglib-uri>/WEB-INF/gap-faerp.tld</taglib-uri>
+        <taglib-location>/WEB-INF/tld/gap-faerp.tld</taglib-location>
+    </taglib>
+    </jsp-config>
+</web-app>
+

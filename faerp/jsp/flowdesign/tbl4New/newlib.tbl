@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="gb2312"?>
+<vg version="460" gridsize="10" range="0,0,1024,721" bordericons="7" borderstyle="3" scrollbars="3" windowstate="0" backcolor="$FFFFFF">
+<page name="Page" bounds="0,0,827,1169" visible="false" margin="100,100,100,100" paperwidth="2100" paperheight="2969"/>
+<sheet name="Start" description="��ʼ" bounds="25,25,101,59">
+<circle name="Circle1" description="��ʼ" bounds="25,25,101,59" origin="67.5,35.5" alpha="80" protect="96" backcolor="$FFFFE8" frontcolor="$F7F700" pattern="244">
+<text name="Text1" bounds="32.103240983,32.103240983,93.896759017,51.896759017" origin="63,42" lock="true" border="$0" fontname="����_GB2312" fontsize="12" text="��ʼ"/>
+</circle>
+</sheet>
+<sheet name="End" description="����" bounds="25,25,101,59">
+<circle name="Circle1" bounds="25,25,101,59" origin="60,35.5" alpha="80" protect="96" backcolor="$F5F5F5" frontcolor="$F0F000" pattern="252">
+<text name="Text1" bounds="32.103240983,32.103240983,93.896759017,51.896759017" origin="63,42" lock="true" border="$0" fontname="����_GB2312" fontsize="12" text="����"/>
+</circle>
+</sheet>
+<sheet name="Active" description="�" bounds="9,9,85,56">
+<rect name="Active" description="�" bounds="9,9,85,56" origin="66.8,37.9" corner="30" frontcolor="$FEE39E" pattern="244"/>
+<text name="Text1" bounds="9,9,85,56" origin="66.3,38.7" lock="true" fontname="����" fontsize="12" borderinterval="0"/>
+</sheet>
+<sheet name="SubFlow" description="������" bounds="9,9,84,52">
+<element name="Subflow" description="������" bounds="9,9,84,52" origin="75,49.3" alpha="70">
+<element name="Element1" bounds="9,9,84,52" origin="55,36.5" alpha="70">
+<rect name="Rect1" bounds="9,9,84,52" origin="54,35.5" backcolor="$FFFF00" frontcolor="$FFFFFF" pattern="244"/>
+<rect name="Rect2" bounds="21.499999999,13.056603773,29.833333334,25.226415094" origin="37,33.5" backcolor="$E1E1E1" pattern="1"/>
+<rect name="Rect3" bounds="61.5,12.650943397,71.291666666,24.617924528" origin="78.5,22.5" backcolor="$E1E1E1" pattern="1"/>
+<rect name="Rect4" bounds="19.833333334,33.339622642,30.666666667,45.509433962" origin="31.5,48" backcolor="$E1E1E1" pattern="1"/>
+<rect name="Rect5" bounds="60.666666667,33.745283019,71.083333334,45.91509434" origin="78,49" backcolor="$E1E1E1" pattern="1"/>
+<line name="Line1" origin="43.25,29.25">
+<points>
+29.833333334,17.924528302,6
+45.458333333,25.632075472,2
+61.5,19.75,2
+</points>
+</line>
+<line name="Line2" origin="44.25,41.75">
+<points>
+43.166666666,30.905660378,6
+30.666666667,40.033018868,2
+</points>
+</line>
+<line name="Line3" origin="60.75,42.125">
+<points>
+48.687499999,30.601415094,6
+60.666666667,42.264150943,2
+</points>
+</line>
+<rect name="Rect6" bounds="39.208333334,25.632075472,50.875000001,30.702830189" origin="52.25,32.625" backcolor="$E1E1E1" pattern="1"/>
+</element>
+</element>
+<text name="Text1" bounds="9,9,84,52" origin="67,44.375" lock="true" backcolor="$C0C0C0" frontcolor="$8000000E" fontname="����" fontsize="12" fontcolor="$FF8000"/>
+</sheet>
+<sheet name="Route" description="·��" bounds="14,15,62,60.726140312">
+<circle name="Circle1" bounds="15,15,60.726140312,60.726140312" origin="67.226140312,40.226140312" linecolor="$FF8000" frontcolor="$FF8000" pattern="248"/>
+<text name="Text1" bounds="14,27,62,50" origin="43,61" lock="true" backcolor="$0" frontcolor="$FFFFFF" border="$0" fontname="����" fontsize="12"/>
+</sheet>
+<sheet name="Email" description="�����ʼ�" bounds="9,9,79,50">
+<element name="Email" description="�����ʼ�" bounds="9,9,79,50" origin="41,23" alpha="70">
+<rect name="Rect1" bounds="9,9,79,50" origin="90,50" alpha="70" backcolor="$FFFF" pattern="1"/>
+<line name="Line2" origin="90,66" alpha="70" backcolor="$FFFF" pattern="1">
+<points>
+9,50,6
+79,50,2
+44,25.4,3
+</points>
+</line>
+<line name="Line1" origin="90,34" backcolor="$FFFF" pattern="1">
+<points>
+9,9,6
+79,9,2
+44,33.6,3
+</points>
+</line>
+</element>
+<text name="Text1" bounds="9,9,79,50" origin="46.9,27.6" lock="true" fontname="����" fontsize="12"/>
+</sheet>
+<sheet name="Translate" description="ת��" bounds="15,15,67,67">
+<line name="Line1" description="ת��" origin="30.5,45" linecolor="$FFAA55" endarrow="1" linkmode="1">
+<points>
+15,15,6
+67,67,2
+</points>
+</line>
+</sheet>
+<sheet name="Assion" description="����" bounds="15,15,49,81">
+<line name="Line1" description="����" origin="63.5,76.5" linetype="12" linecolor="$FF0000" frontcolor="$808080" linkmode="1">
+<points>
+15,15,6
+49,81,2
+</points>
+</line>
+</sheet>
+<sheet name="content" description="ע��" bounds="31,25,108.5,59">
+<line name="Line1" origin="31,39" linetype="3" linecolor="$FF8000">
+<points>
+31,32,6
+31,59,2
+108.5,59,2
+</points>
+</line>
+<text name="Text1" bounds="32.5,25,108.25,57.75" origin="70.375,41.375" linecolor="$FFFFFF" backcolor="$C8C8C8" fontname="����" fontsize="12" borderinterval="0"/>
+</sheet>
+</vg>

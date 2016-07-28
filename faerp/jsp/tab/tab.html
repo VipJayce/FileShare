@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>无标题文档</title>
+<link href="../../css/common.css" rel="stylesheet" type="text/css" />
+<link href="../../css/index.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/jquery/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="../../js/jquery/q_box.js"></script>
+<link id="skin" href="../../css/q_box_style.css" rel="stylesheet"  type="text/css" />
+ <script language="javascript">
+    var venusbase = "<%=request.getContextPath()%>";
+</script>
+</head>
+<body>
+<div id="right">
+  <div class="ringht_s">
+	<!--公司新闻 -->
+    <div class="home">
+    	<div class="home_title"><div class="home_title_left">公司新闻</div><div class="home_title_more"><a href="###">更多 ></a></div></div>
+        <div class="home_box">
+        	<ul>
+            	<li><span class="li_date" style="color:#999;">2011-03-01－－系统管理员</span><a href="###"> 关于调整上海市2009年度住房公积金缴存基数的实施办法</a></li>
+                <li><span class="li_date" style="color:#999;">2011-03-01－－系统管理员</span><a href="###"> 关于调整上海市2009年度住房公积金缴存基数的实施办法</a></li>
+                <li><span class="li_date" style="color:#999;">2011-03-01－－系统管理员</span><a href="###"> 关于调整上海市2009年度住房公积金缴存基数的实施办法</a></li>
+            </ul>
+        </div>
+    </div>
+	<!--公司新闻 end-->
+    <!--公司新闻 -->
+    <div class="home">
+    	<div class="home_title"><div class="home_title_left">公司公告</div><div class="home_title_more"><a href="###">更多 ></a></div></div>
+        <div class="home_box">
+        	<ul>
+            	<li><span class="li_date" style="color:#999;">2011-03-01－－系统管理员</span><a href="###"> 关于调整上海市2009年度住房公积金缴存基数的实施办法</a></li>
+                <li><span class="li_date" style="color:#999;">2011-03-01－－系统管理员</span><a href="###"> 关于调整上海市2009年度住房公积金缴存基数的实施办法</a></li>
+                <li><span class="li_date" style="color:#999;">2011-03-01－－系统管理员</span><a href="###"> 关于调整上海市2009年度住房公积金缴存基数的实施办法</a></li>
+            </ul>
+        </div>
+    </div>
+	<!--公司新闻 end--
+    <!--公司新闻 -->
+    <div class="home">
+    	<div class="home_title"><div class="home_title_left">人力资源政策</div><div class="home_title_more"><a href="###">更多 ></a></div></div>
+        <div class="home_box">
+        	<ul>
+            	<li><span class="li_date" style="color:#999;">2011-03-01－－系统管理员</span><a href="###"> 关于调整上海市2009年度住房公积金缴存基数的实施办法</a></li>
+                <li><span class="li_date" style="color:#999;">2011-03-01－－系统管理员</span><a href="###"> 关于调整上海市2009年度住房公积金缴存基数的实施办法</a></li>
+                <li><span class="li_date" style="color:#999;">2011-03-01－－系统管理员</span><a href="###"> 关于调整上海市2009年度住房公积金缴存基数的实施办法</a></li>
+            </ul>
+        </div>
+    </div>
+	<!--公司新闻 end-->
+
+	</div>
+</div>
+ <script type="text/javascript">  
+     jQuery(document).ready(function(){  
+        var u='/FAERP/EpwelfareAction.do?cmd=systemRemind'; 
+          jQuery.ajax({
+            type:"post",
+            url:u,
+            data:null,
+            success:function(msg){ 
+                var html=msg;   
+              jQuery.gBox.message({Title:"温馨提示",Content:html,Width:400,Time:1000},6000);  
+            }
+        });
+      }); 
+    
+   </script>
+</body>
+</html>

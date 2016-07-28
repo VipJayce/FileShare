@@ -1,0 +1,6 @@
+.gbox_contain{ border:1px solid #999999; width:350px; position:absolute; right:2px; bottom:2px; z-index:1000;font-size:12px;filter: alpha(opacity=10);opacity:0.1; background-color:white;}
+.gbox_title{height:25px;line-height:24px;float:left;word-break:break-all;width:100%;background:url("../images/jbox/jbox-title-icon.gif") no-repeat scroll 3px 5px transparent;background-color:#0B8BBF;}
+.gbox_close{background: url("../images/jbox/jbox-close1.gif") no-repeat scroll 0 0 transparent; width:15px; height:15px; float:right; margin-top:3px; margin-right:2px;cursor: hand;}
+.gbox_head{ margin-left:18px; width:90%;height:24px;line-height:23px; float:left;}
+.gbox_content{ float:left;width:95%; height:auto; margin-bottom:14px; margin-top:10px; margin-left:2%;}
+ 

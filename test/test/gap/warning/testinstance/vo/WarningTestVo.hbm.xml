@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+  <class name="test.gap.warning.testinstance.vo.WarningTestVo" table="WARNING_TEST">
+    <id name="id" column="id" type="java.lang.String">
+      <generator class="assigned"/>
+    </id>
+	 <property name="integerCol"  column="INTEGER_COLUMN"  type="java.lang.String" />
+ 	<property name="stringCol"  column="STRING_COLUMN"  type="java.lang.String" />
+ 	<property name="dateCol"  column="DATE_COLUMN"  type="java.lang.String" />
+ 	<property name="bigdecimalCol"  column="BIGDECIMAL_COL"  type="java.lang.String" />
+ 	<property name="boolCol"  column="BOOL_COLUMN"  type="java.lang.String" />
+ </class>
+</hibernate-mapping>

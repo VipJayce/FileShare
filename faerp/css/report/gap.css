@@ -1,0 +1,132 @@
+TITLE {
+	FONT-SIZE: 10px; COLOR: #000000; FONT-FAMILY: "宋体"
+}
+BODY {
+	FONT-SIZE: 9pt
+}
+TABLE {
+	FONT-SIZE: 9pt
+}
+TD {
+	FONT-SIZE: 9pt
+}
+P {
+	FONT-SIZE: 9pt
+}
+FONT {
+	FONT-SIZE: 9pt
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	LEFT: 0px; COLOR: #ff9900; POSITION: relative; TOP: 0px; TEXT-DECORATION: underline
+}
+BODY {
+	SCROLLBAR-FACE-COLOR: #ececec; FONT-SIZE: 10pt; MARGIN: 0px; SCROLLBAR-HIGHLIGHT-COLOR: #eeeeee; SCROLLBAR-SHADOW-COLOR: #333333; COLOR: #000000; SCROLLBAR-3DLIGHT-COLOR: #828282; SCROLLBAR-ARROW-COLOR: #333333; SCROLLBAR-TRACK-COLOR: #eaeaea; FONT-FAMILY: 宋体,Arial; SCROLLBAR-DARKSHADOW-COLOR: #eeeeee; BACKGROUND-COLOR: #ffffff
+}
+H1 {
+	FONT-SIZE: 9px; COLOR: #000000; FONT-FAMILY: "宋体"
+}
+H2 {
+	FONT-SIZE: 10px; COLOR: #000000
+}
+LINK {
+	FONT-SIZE: 10px; COLOR: #000099
+}
+FORM {
+	FONT-WEIGHT: normal; LINE-HEIGHT: normal; FONT-STYLE: normal; FONT-FAMILY: MS Shell Dlg,tahoma
+}
+TD {
+	FONT-SIZE: 9pt; FONT-FAMILY: Verdana,Helvetica,Arial
+}
+INPUT {
+	BORDER-RIGHT: #b3b3b3 0px solid; BORDER-TOP: #333333 0px solid; FONT-SIZE: 9pt; VERTICAL-ALIGN: middle; BORDER-LEFT: #333333 0px solid; COLOR: #003300; LINE-HEIGHT: 10px; BORDER-BOTTOM: #b3b3b3 0px solid; FONT-FAMILY: "Arial"; HEIGHT: 15px
+}
+TEXTAREA {
+	BORDER-RIGHT: #b3b3b3 1px solid; BORDER-TOP: #333333 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #333333 1px solid; COLOR: #003300; BORDER-BOTTOM: #b3b3b3 1px solid; FONT-FAMILY: "Arial"; TEXT-DECORATION: none
+}
+SELECT {
+	BORDER-RIGHT: #b3b3b3 1px solid; BORDER-TOP: #333333 1px solid; FONT-SIZE: 9pt; VERTICAL-ALIGN: middle; BORDER-LEFT: #333333 1px solid; WIDTH: 206px; COLOR: #003300; BORDER-BOTTOM: #b3b3b3 1px solid; FONT-FAMILY: "Arial"; TEXT-DECORATION: none
+}
+.bg_workFlowPic {
+	BACKGROUND-COLOR: #03c3f0
+}
+.bg_tr0 {
+	BACKGROUND-COLOR: #ffffff
+}
+.bg_tr1 {
+	BACKGROUND-COLOR: #f5f4f7
+}
+.bg_black {
+	BACKGROUND-COLOR: #000000
+}
+.bg_white {
+	BACKGROUND-COLOR: #ffffff
+}
+.text_field {
+	BORDER-RIGHT: #b3b3b3 1px solid; BORDER-TOP: #333333 1px solid; FONT-SIZE: 9pt; VERTICAL-ALIGN: middle; BORDER-LEFT: #333333 1px solid; WIDTH: 204px; COLOR: #003300; LINE-HEIGHT: 13px; BORDER-BOTTOM: #b3b3b3 1px solid; HEIGHT: 20px
+}
+.text_field_readonly {
+	BORDER-RIGHT: #b3b3b3 1px solid; BORDER-TOP: #333333 1px solid; FONT-SIZE: 9pt; BEHAVIOR: url("/authority4mssql/css/gap-readOnly.htc"); VERTICAL-ALIGN: middle; BORDER-LEFT: #333333 1px solid; WIDTH: 204px; COLOR: #003300; LINE-HEIGHT: 13px; BORDER-BOTTOM: #b3b3b3 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: #a4b7cd
+}
+.text_field_reference {
+	BORDER-RIGHT: #b3b3b3 1px solid; BORDER-TOP: #333333 1px solid; VERTICAL-ALIGN: middle; BORDER-LEFT: #333333 1px solid; WIDTH: 186px; COLOR: #003300; LINE-HEIGHT: 13px; BORDER-BOTTOM: #b3b3b3 1px solid; HEIGHT: 20px; 参照左边的text，可写，长度为: 9pt
+}
+.text_field_reference_readonly {
+	BORDER-RIGHT: #b3b3b3 1px solid; BORDER-TOP: #333333 1px solid; BEHAVIOR: url("/authority4mssql/css/gap-readOnlyClear.htc"); VERTICAL-ALIGN: middle; BORDER-LEFT: #333333 1px solid; WIDTH: 186px; COLOR: #003300; LINE-HEIGHT: 13px; BORDER-BOTTOM: #b3b3b3 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: #a4b7cd; 参照左边的text，只读，长度为: 9pt
+}
+.textarea_limit_words {
+	BEHAVIOR: url("/authority4mssql/css/gap-textareaLimitWords.htc")
+}
+.table_div_control {
+	BORDER-RIGHT: #9eb4cd 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #9eb4cd 1px solid; MARGIN-TOP: 2px; PADDING-LEFT: 0px; FONT-WEIGHT: bolder; FONT-SIZE: 9pt; PADDING-BOTTOM: 0px; BORDER-LEFT: #9eb4cd 1px solid; WIDTH: 100%; COLOR: #333333; PADDING-TOP: 0px; BORDER-BOTTOM: #9eb4cd 1px solid; FONT-FAMILY: "Arial"; TEXT-DECORATION: none; border-spacing: 0px
+}
+.table_div_content {
+	BORDER-RIGHT: #9eb4cd 1px solid; TABLE-LAYOUT: fixed; PADDING-RIGHT: 0px; BORDER-TOP: #9eb4cd 1px solid; PADDING-LEFT: 0px; BACKGROUND-IMAGE: url(../images/add_21.jpg); BORDER-LEFT: #9eb4cd 1px solid; WIDTH: 100%; WORD-BREAK: break-all; PADDING-TOP: 0px; BORDER-BOTTOM: #9eb4cd 1px solid; BACKGROUND-COLOR: #dee5f0; WORD-WRAP: break-word; border-spacing: 0px
+}
+.style_required_red {
+	COLOR: #ff0000
+}
+.td_hand {
+	WIDTH: 50px; CURSOR: hand
+}
+.refButtonClass {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; VERTICAL-ALIGN: middle; BORDER-LEFT: 0px; WIDTH: 18px; CURSOR: hand; BORDER-BOTTOM: 0px; HEIGHT: 20px
+}
+.div_control_image {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; VERTICAL-ALIGN: middle; BORDER-LEFT: 0px; WIDTH: 16px; CURSOR: hand; BORDER-BOTTOM: 0px; HEIGHT: 16px
+}
+.button_ellipse {
+	BORDER-RIGHT: #2c59aa 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #2c59aa 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5); BEHAVIOR: url("/authority4mssql/css/gap-button.htc"); BORDER-LEFT: #2c59aa 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #2c59aa 1px solid; HEIGHT: 22px
+}
+.btn3_mouseout {
+	BORDER-RIGHT: #2c59aa 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #2c59aa 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5); BEHAVIOR: url("/authority4mssql/css/gap-button.htc"); BORDER-LEFT: #2c59aa 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #2c59aa 1px solid; HEIGHT: 22px
+}
+.btn3_mouseover {
+	BORDER-RIGHT: #2c59aa 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #2c59aa 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#D7E7FA); BEHAVIOR: url("/authority4mssql/css/gap-button.htc"); BORDER-LEFT: #2c59aa 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #2c59aa 1px solid; HEIGHT: 22px
+}
+.btn3_mousedown {
+	BORDER-RIGHT: #ffe400 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #ffe400 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5); BEHAVIOR: url("/authority4mssql/css/gap-button.htc"); BORDER-LEFT: #ffe400 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #ffe400 1px solid; HEIGHT: 22px
+}
+.btn3_mouseup {
+	BORDER-RIGHT: #2c59aa 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #2c59aa 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5); BEHAVIOR: url("/authority4mssql/css/gap-button.htc"); BORDER-LEFT: #2c59aa 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #2c59aa 1px solid; HEIGHT: 22px
+}
+TABLE.listCss {
+	BORDER-RIGHT: #9eb4cd 0px solid; BORDER-TOP: #9eb4cd 0px solid; BEHAVIOR: url("/authority4mssql/css/gap-strutsLayout.htc"); VERTICAL-ALIGN: middle; BORDER-LEFT: #9eb4cd 0px solid; LINE-HEIGHT: 130%; BORDER-BOTTOM: #9eb4cd 0px solid; BACKGROUND-COLOR: #666666; border-spacing: 1px
+}
+TH.listCss {
+	BORDER-RIGHT: #9eb4cd 0px solid; PADDING-RIGHT: 1px; BORDER-TOP: #9eb4cd 0px solid; PADDING-LEFT: 1px; FONT-WEIGHT: bold; PADDING-BOTTOM: 1px; MARGIN: 1px auto; VERTICAL-ALIGN: middle; BORDER-LEFT: #9eb4cd 0px solid; LINE-HEIGHT: 130%; PADDING-TOP: 1px; BORDER-BOTTOM: #9eb4cd 0px solid; HEIGHT: 25px; BACKGROUND-COLOR: #b8d5f5; TEXT-ALIGN: center; border-spacing: 0px
+}
+TR.listCss {
+	BACKGROUND-COLOR: #ffffff
+}
+TD.listCss {
+	BORDER-RIGHT: #9eb4cd 0px solid; PADDING-RIGHT: 1px; BORDER-TOP: #9eb4cd 0px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; MARGIN: 1px auto; VERTICAL-ALIGN: middle; BORDER-LEFT: #9eb4cd 0px solid; LINE-HEIGHT: 130%; PADDING-TOP: 1px; BORDER-BOTTOM: #9eb4cd 0px solid; HEIGHT: 22px; border-spacing: 0px
+}
+.go_button {
+	BORDER-RIGHT: 0px; BACKGROUND-POSITION: center center; BORDER-TOP: 0px; FONT-SIZE: 9pt; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-IMAGE: url(/authority4mssql/images/button/2button_01.jpg); MARGIN-LEFT: 5px; VERTICAL-ALIGN: middle; BORDER-LEFT: 0px; WIDTH: 48px; CURSOR: hand; COLOR: #5d7692; LINE-HEIGHT: 15px; MARGIN-RIGHT: 5px; BORDER-BOTTOM: 0px; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: "Arial"; HEIGHT: 24px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}

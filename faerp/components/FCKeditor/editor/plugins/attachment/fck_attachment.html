@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+	<head>
+		<title>Attachment Properties</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Expires" CONTENT="0">
+		<meta http-equiv="Cache-Control" CONTENT="no-cache">
+		<meta http-equiv="Pragma" CONTENT="no-cache">
+
+		<script language="javascript">
+
+var oEditor = window.parent.InnerDialogLoaded() ;
+var FCKLang = oEditor.FCKLang ;
+var FCKAttachment = oEditor.FCKAttachment ;
+
+window.onload = function () {
+	// First of all, translate the dialog box texts
+	oEditor.FCKLanguageManager.TranslatePage( document ) ;
+	
+	LoadSelected() ;
+	
+	// Show the "Ok" button.
+	window.parent.SetOkButton( true ) ;	
+}
+
+var eSelected = oEditor.FCKSelection.GetSelectedElement() ;
+
+function LoadSelected() {
+	if ( !eSelected )
+		return ;
+
+	if ( eSelected.tagName == 'SPAN' && eSelected._id == 'Alexander.Attachment' ) {
+		document.getElementById('txtAttachId').value = eSelected._id ;
+		document.getElementById('txtAttachName').value = eSelected._name ;
+	}
+	else {
+		eSelected == null ;
+	}
+}
+
+function Ok() {
+	var sId = document.getElementById('txtAttachId').value ;
+	var sValue = document.getElementById('txtAttachName').value ;
+	
+	if ( eSelected && eSelected._name == sValue )
+		return true ;
+
+	if ( sValue.length == 0 ) {
+		alert( FCKLang.AttachmentErrNoName ) ;
+		return false ;
+	}
+	
+	FCKAttachment.Add( sId, sValue ) ;
+	return true ;
+}
+
+		</script>
+	</head>
+	<body scroll="no" style="OVERFLOW: hidden">
+		<table height="100%" cellSpacing="0" cellPadding="0" width="100%" border="0">
+			<tr>
+				<td>
+					<table cellSpacing="0" cellPadding="0" align="center" border="0">
+						<tr>
+							<td>
+								<span fckLang="AttachmentDlgId">Attachment Id</span>&nbsp;&nbsp;&nbsp;Alexander.Attachment
+								<input id="txtAttachId" type="hidden" value="Alexander.Attachment">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								&nbsp;&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span fckLang="AttachmentDlgName">Attachment Name</span>&nbsp;&nbsp;
+								<input id="txtAttachName" type="text" style="ime-mode:disabled">
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

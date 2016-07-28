@@ -1,0 +1,90 @@
+/*
+
+bright: rgb(234,242,255);
+normal: rgb(120,172,255);
+dark:	rgb(0,66,174);
+
+*/
+
+
+
+
+.dynamic-tab-pane-control.tab-pane {
+	position:	relative;
+	width:		100%;
+}
+
+.dynamic-tab-pane-control .tab-row .tab {
+	font-family:	Verdana, Helvetica, Arial;
+	font-size:		12px;
+	cursor:			Default;
+	display:		inline;
+	margin:			2px 0px 0px 0px;
+	float:			left;
+	padding:		10px 0px 0px 0px;
+	background-image:url('../../../images/ajaxList/lable02.gif');
+	border:			1px solid;
+	border-color:	#ffffff;
+	border-left:	0;
+	border-bottom:	0;
+	border-top:		0;
+	height:30px;
+	width:118px;
+
+	cursor:			hand;
+	cursor:			pointer;
+	
+	z-index:		1;
+	position:		relative;
+	top:			0;
+}
+
+.dynamic-tab-pane-control .tab-row .tab.selected {
+	border:			0px solid rgb(120,172,255);
+	border-bottom:	0;
+	z-index:		3;
+	padding:		10px 0px 0px 0px;
+	margin:			2px 0px 0px 0px;
+	top:			0px;
+	background-image:url('../../../images/ajaxList/lable01.gif');
+	height:30px;
+	width:118px;
+}
+
+.dynamic-tab-pane-control .tab-row .tab a {
+	font-family:		Verdana, Helvetica, Arial;
+	font-size:			13px;
+	color:				rgb(0,66,174);
+	text-decoration:	none;
+	cursor:			hand;
+	cursor:			pointer;	
+}
+
+.dynamic-tab-pane-control .tab-row .hover a {
+	color:	rgb(0,66,174);
+}
+
+.dynamic-tab-pane-control .tab-row .tab.selected a {
+	font-weight:	bold;
+}
+
+.dynamic-tab-pane-control .tab-page { /*主区域*/
+	clear:			both;
+	border:			1px solid #bdd5e2;
+	background:		White;
+	z-index:		2;
+	position:		relative;
+	top:			-2px;
+	color:			Black;
+	font-family:	Verdana, Helvetica, Arial;
+	font-size:		13px;
+	padding:		10px;
+}
+
+.dynamic-tab-pane-control .tab-row {
+	z-index:		1;
+	white-space:	nowrap;
+	/*background:		rgb(234,242,255);*/
+	height:			1.85em;
+	width:			100%;
+}

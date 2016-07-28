@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="gb2312"?>
+<vg version="460" gridsize="8" range="0,0,1024,721" bordericons="7" borderstyle="3" scrollbars="3" windowstate="0" backcolor="$FFFFFF">
+<page name="Page" bounds="0,0,827,1169" visible="false" margin="100,100,100,100" paperwidth="2100" paperheight="2969"/>
+<sheet name="Sheet1" bounds="99,22,270,325.5">
+<circle name="Circle1" description="��ʼ" bounds="99,22,175,56" origin="137,39" alpha="80" protect="252" backcolor="$FFFFE8" frontcolor="$F7F700" pattern="244">
+<text name="Text1" bounds="106.103240983,29.103240983,167.896759017,48.896759017" origin="137,39" lock="true" border="$0" fontname="����_GB2312" fontsize="12" text="��ʼ"/>
+</circle>
+<circle name="Circle2" description="����" bounds="99,291.5,175,325.5" origin="137,307" alpha="80" protect="252" backcolor="$F5F5F5" frontcolor="$F0F000" pattern="252">
+<text name="Text1" bounds="106.103240983,298.603240983,167.896759017,318.396759017" origin="137,308.5" lock="true" border="$0" fontname="����_GB2312" fontsize="12" text="����"/>
+</circle>
+<line name="Line2" description="����" origin="136.532019704,193" protect="16" lock="true" linetype="12" linecolor="$FF0000" frontcolor="$808080" linkmode="1">
+<points>
+137,56,6
+137,116,2
+</points>
+<link>
+Circle1,p0,center
+Active1,p1,center
+</link>
+</line>
+<line name="Line3" description="����" origin="579.950936429,366" protect="16" lock="true" linetype="12" linecolor="$FF0000" frontcolor="$808080" linkmode="1">
+<points>
+137,261,6
+137,293,2
+</points>
+<link>
+Route1,p0,center
+Circle2,p1,center
+</link>
+</line>
+<line name="Line1" description="ת��" origin="159,164.414590782" linecolor="$FFAA55" endarrow="1" linkmode="1">
+<points>
+175,139.357142857,6
+270,139,2
+</points>
+<link>
+Active1,p0,center
+</link>
+</line>
+<route name="Route1" description="·��" bounds="114.136929844,215,159.863070156,260.726140312" origin="134.886929844,238">
+<circle name="Circle1" bounds="114.136929844,215,159.863070156,260.726140312" origin="147.363070156,248.226140312" linecolor="$FF8000" frontcolor="$FF8000" pattern="248"/>
+<text name="Text1" bounds="120.136929844,222.25,153.886929844,250.75" origin="129.886929844,269.25" lock="true" backcolor="$0" frontcolor="$FFFFFF" border="$0" fontname="����" fontsize="12" text="����·��"/>
+</route>
+<active name="Active1" description="�" bounds="99,116,175,163" origin="128,131">
+<rect name="Active" description="�" bounds="99,116,175,163" origin="146.25,142.5" corner="30" frontcolor="$FEE39E" pattern="244"/>
+<text name="Text1" bounds="99,116,175,163" origin="382.75,249.3" lock="true"  fontname="����" fontsize="12"/>
+</active>
+</sheet>
+</vg>

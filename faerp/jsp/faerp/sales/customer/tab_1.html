@@ -1,0 +1,171 @@
+﻿
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<script language="javascript">
+	var dir_base = "/FAERP";
+</script>
+
+<link href="/FAERP/css/gap-css.jsp" type="text/css" rel="stylesheet" charset="UTF-8">
+<script language="javascript" src="/FAERP/js/jquery/jquery-1.3.min.js"></script>
+<script type='text/javascript' src='/FAERP/js/common/variable-i18n_zh.js'></script>
+
+<link href="/FAERP/css/alex-css.jsp" type="text/css" rel="stylesheet">
+<!-- liuping add -->
+<link href="/FAERP/css/common.css" type="text/css" rel="stylesheet">
+
+<link href="/FAERP/css/index.css" type="text/css" rel="stylesheet">
+
+<style type="text/css">
+tr.odd{background: #fff;}
+tr.even{background: #f9fcfd;}
+.box tr:hover,tr.hover{background:#c4e7f8;}
+.box tr:selected,tr.selected{background-color:#eef8ff; border-bottom-color:#daf1ff;border-right-color:#daf1ff;}
+.fex_row{LEFT:expression(document.getElementById('values_div').scrollLeft);POSITION: relative;}
+</style>
+
+<script language="javascript" src="/FAERP/js/common/gap-mainframe.js"></script>
+<script language="javascript" src="/FAERP/js/common/gap-validate.js"></script>
+<script language="javascript" src="/FAERP/js/common/gap-waiting.js"></script>
+<script language="javascript" src="/FAERP/js/common/gap-collection.js"></script>
+<script language="javascript" src="/FAERP/js/common/gap-status.js"></script>
+<script language="javascript" src="/FAERP/js/au/gap-authority.js"></script>
+<script language="javascript" src="/FAERP/js/gap-alex.js"></script>
+<script language="javascript" src="/FAERP/js/rm-tools.js"></script>
+<script language="javascript" src="/FAERP/js/common.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>无标题文档</title>
+ 
+
+ 
+</head>
+<body>
+<div id="right">
+	
+    <div class="ringht_s">
+
+  
+        	<!--表格1-->
+   	  		  <div class="ringht_x">
+    			<div class="box_tab">
+                  <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#c5dbe2">
+                  <tr>
+                    <td class="td_1"> 城市</td>
+                    <td class="td_2"><select name="select4" class="sSelect" id="select3">
+                      <option value="ro1">请选择</option>
+                      <option value="ro">上海</option>
+                      <option>杭州</option>
+                    </select></td>
+                    <td class="td_1">大分类名称</td>
+                    <td class="td_2"><input name="text2" type="text" class="sText" id="text22" value=""/></td>
+                  </tr>
+                  </table>
+ 			   <div class="dc_button"><input type="button" class="icon_2" value="查询"/></div>
+			   
+			   
+			  <div style="width:55%; float:left;">
+                     <!--按钮-->
+                            <div class="button_right">
+                                <ul>
+                                  <li class="c"><a href="###">添加</a></li>
+                                  <li class="d"><a href="###">删除</a></li>
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                     <!--按钮 end-->
+                     <!--表格 -->
+                     <div class="box" id="values_div" style="margin-left:0;margin-right:0;">
+                      <table  width="100%" cellspacing="0"  class="datagrid1">
+                        <tr>
+                          <th width="7%"  class="fex_row">
+                          <input type="checkbox" name="checkbox" value="checkbox" onClick="CheckAll()">                          </th>
+                          <th width="31%" >大分类名称</th>
+                          <th width="24%" >城市</th>
+                          <th width="38%" >备注</th>
+                        </tr>
+                        <tr>
+                          <td class="fex_row">
+                            <input type="checkbox" name="checkbox22" value="checkbox">                          </td>
+                          <td ><input name="text422" type="text" class="sText" id="text422" style="width:100px;" value="上海城镇户籍员工"/></td>
+                          <td><select name="select" class="sSelect" id="select" style="width:60px">
+                            <option value="">请选择</option>
+                            <option value="ro" selected>湖北</option>
+                            <option value="fr" selected>山西</option>
+                            <option value="ro">甘肃</option>
+                            <option>.....</option>
+                          </select></td>
+                          <td><input name="text4222" type="text" class="sText" id="text4222" style="width:100px;"/></td>
+                        </tr>
+                        <tr>
+                          <td class="fex_row"><input type="checkbox" name="checkbox2" value="checkbox"></td>
+                          <td>&nbsp;</td>
+                          <td>&nbsp;</td>
+                          <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td class="fex_row"><input type="checkbox" name="checkbox3" value="checkbox"></td>
+                          <td >&nbsp;</td>
+                          <td>&nbsp;</td>
+                          <td>&nbsp;</td>
+                        </tr>
+                      </table>
+</div>
+                     <!--表格 end-->
+				  </div>
+	 		    <div style="width:40%; float:left; margin-left:10px;">
+                  <!--按钮-->
+                  <div class="button_right">
+                    <ul>
+                      <li class="c"><a href="###">添加</a></li>
+                      <li class="d"><a href="###">删除</a></li>
+                    </ul>
+                    <div class="clear"></div>
+                  </div>
+	 		      <!--按钮 end-->
+                  <!--表格 -->
+                  <div class="box" id="div" style="margin-left:0;margin-right:0;">
+                    <table  width="100%" cellspacing="0"  class="datagrid1">
+                      <tr>
+                        <th width="8%"  class="fex_row"> <input type="checkbox" name="checkbox5" value="checkbox" onClick="CheckAll()">                        </th>
+                        <th width="42%" >小分类名称</th>
+                        <th width="50%" >备注</th>
+                      </tr>
+                      <tr>
+                        <td class="fex_row"><input type="checkbox" name="checkbox222" value="checkbox">                        </td>
+                        <td ><input name="text4223" type="text" class="sText" id="text4223" style="width:100px;" value="上海城镇户籍员工"/></td>
+                        <td><input name="text42223" type="text" class="sText" id="text42223" style="width:100px;"/></td>
+                      </tr>
+                      <tr>
+                        <td class="fex_row"><input type="checkbox" name="checkbox23" value="checkbox"></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td class="fex_row"><input type="checkbox" name="checkbox32" value="checkbox"></td>
+                        <td >&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
+                    </table>
+                  </div>
+	 		      <!--表格 end-->
+                </div>
+    			</div>
+				
+ 		  </div>
+   			 <!--表格1 end-->
+        </div>
+
+       
+    
+ 
+</div></div>
+</body>
+</html>

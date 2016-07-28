@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<html>
+	<head>
+		<title>Work Flow Rollback Button Properties</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="Expires" CONTENT="0">
+		<meta http-equiv="Cache-Control" CONTENT="no-cache">
+		<meta http-equiv="Pragma" CONTENT="no-cache">
+		<script type="text/javascript">
+
+var oEditor = window.parent.InnerDialogLoaded() ;
+var FCKLang = oEditor.FCKLang ;
+var FCKWorkFlowButtonRollback = oEditor.FCKWorkFlowButtonRollback ;
+
+window.onload = function ()
+{
+	// First of all, translate the dialog box texts
+	oEditor.FCKLanguageManager.TranslatePage( document ) ;
+	
+	LoadSelected() ;
+	
+	// Show the "Ok" button.
+	window.parent.SetOkButton( true ) ;	
+}
+
+var eSelected = oEditor.FCKSelection.GetSelectedElement() ;
+
+function LoadSelected()
+{
+	if ( !eSelected )
+		return ;
+
+	if ( eSelected.id == 'rollbackAlexander' ) {
+		document.getElementById('txtName').value = eSelected.id ;
+		document.getElementById('txtValue').value = eSelected.value ;
+	}
+	else {
+		eSelected == null ;
+	}
+}
+
+function Ok()
+{
+	var sId = document.getElementById('txtName').value ;
+	var sValue = document.getElementById('txtValue').value ;
+
+	if ( sValue.length == 0 ) {
+		alert( FCKLang.WorkFlowButtonRollbackErrNoName ) ;
+		return false ;
+	}
+
+	FCKWorkFlowButtonRollback.Add( sId, sValue ) ;
+	return true ;
+}
+
+		</script>
+	</head>
+	<body style="OVERFLOW: hidden" scroll="no">
+		<table height="100%" width="100%">
+			<tr>
+				<td align="center">
+					<table border="0" cellpadding="0" cellspacing="0" width="80%">
+						<tr>
+							<td colSpan="">
+								<span fckLang="DlgWorkFlowButtonRollbackName">Name</span>&nbsp;&nbsp;&nbsp;rollbackAlexander
+								<input type="hidden" id="txtName" value="rollbackAlexander">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								&nbsp;&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span fckLang="DlgWorkFlowButtonRollbackText">Text (Value)</span>&nbsp;&nbsp;
+								<input type="text" id="txtValue">
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
